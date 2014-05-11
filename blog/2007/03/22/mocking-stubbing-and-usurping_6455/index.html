@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mocking, Stubbing, and Usurping - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="This post won&#8217;t be about mockery in general, nor will it be about a famous &#8220;Love boat&#8221; captain (ok &#8230;not the same &#8220; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2007/03/22/mocking-stubbing-and-usurping_6455">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Mocking, Stubbing, and Usurping</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-03-22T00:00:00+01:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+This post won&#8217;t be about <a href="http://en.wiktionary.org/wiki/mockery">mockery</a> in general, nor will it be about a famous <a href="http://www.toymania.com/334archives/love/stubing.htm">&#8220;Love boat&#8221; captain</a> (ok &#8230;not the same &#8220;spelling&#8221; ;) ).<br /><br />What I want to talk about is <span style="font-style: italic;">Mock Objects</span> and <span style="font-style: italic;">Stubs</span> used in strategies for Unit Testing.<br /><br />When you have to Unit test a piece of code, (if your purpose is <a href="http://xunitpatterns.com/Obscure%20Test.html">really to Unit test it</a>), you&#8217;ll often need to isolate it from the surrounding layers/components.<br /><br />In order to achieve this, two common tools are used: Mocks and Stubs (Though <a href="http://xunitpatterns.com/Mocks,%20Fakes,%20Stubs%20and%20Dummies.html">other variants</a> are available).<br /><br />Let&#8217;s begin with Stubs (in unit testing vocabulary). A <span style="font-weight: bold;">Test Stub</span> is a test-specific implementation of the contract of the object/component it is supposed to replace. It is ment to return the value this component is supposed to return. This Stub can also return a wrong value or throw an Exception in order to emulate error cases and test the robustness of our <span style="font-style: italic;">system under test</span>.<br /><br />A <span style="font-weight: bold;">Mock object</span> adds some <span style="font-style: italic;">behaviour testing</span> to the Stub. This means that in addition to the returning of values and throwing of exceptions, it also checks the input it gets from the system under test, the number of times each method has been called&#8230;etc<br /><br />So why does this post&#8217;s title mentions <span style="font-style: italic;">Usurping</span>?<br /><br />Now comes the part where I&#8217;ll present a solution I came up to for Java applications and baptized <span style="font-weight: bold; font-style: italic;">Usurper</span>.<br /><br />When you&#8217;re creating your own Stubs or using a Mock Object framework (<a href="http://www.easymock.org/">easymock</a>, <a href="http://www.jmock.org/">jmock</a>&#8230;etc) you need to feed them with the expected return values.<br /><br />It can sometimes be quite tedious to create a value object&#8217;s instance, and even more if your Mocked component is supposed to return a list of 100 users for example.<br /><br />This is where Usurper comes in handy.<br /><br />If you have a User <a href="http://wiki.java.net/bin/view/Javapedia/ValueObject">Value Object</a> like this one:<br /><br /><pre name="code" class="java">public class User{<br />private String firstName;<br /><br />private String lastName;<br /><br />private Integer age;<br /><br />private boolean administrator;<br /><br />// getters and setters ...toString() method...<br />}<br /></pre><br />Here&#8217;s how you can create a list of 100 User objects using Usurper.<br /><br /><pre name="code" class="java">// CREATE THE USURPER GENERATOR<br />UsurperGenerator&lt;User&gt; userGenerator<br />= new UsurperGenerator&lt;User&gt;(User.class);<br /><br />// GENERATE A LIST OF USER VALUE OBJECTS<br />List&lt;User&gt; userList =<br />userGenerator.generateUsurperList(100);</pre>And you&#8217;re done!<br /><br />At least for now if you don&#8217;t need to test the contents of the object.<br />In fact, the content of the generated usurper object is something like this:<br /><br /><pre>org.org.usurper.User@1632c2d[<br />lastName=dCOuSJOZQZ<br />administrator=false<br />age=814857147<br />firstName=Zq8R9bH7LJ<br />]<br /></pre>This is because the default field handlers allocate a random value to the fields in your object.<br />So this is the part where you&#8217;ll say to me this is no use at all.<br />Well I&#8217;ll answer that from now on this is up to you!!! ;)<br />You can easily implement:<br /><ul><li><a href="http://www.org-libs.org/org-lib-usurper/apidocs/org/org/usurper/handlers/basic/AbstractPropertyTypeHandler.html">handlers for types of properties</a></li><li><a href="http://www.org-libs.org/org-lib-usurper/apidocs/org/org/usurper/handlers/basic/AbstractSpecificPropertyHandler.html">handlers for specific properties</a> (for example a specific handler for the property age of the User class)</li></ul>This way you can customize the way some fields are dealt with.<br />For example, the <span style="font-style: italic;">BigInteger</span> type is not handled by default. You can easily create your own implementation in a global text fixture of to a specific test&#8217;s local fixture:<br /><br /><pre name="code" class="java">// CREATE THE USURPER GENERATOR<br />UsurperGenerator&lt;User&gt; userGenerator =<br />new UsurperGenerator&lt;User&gt;(User.class);</span><br /><br />// REGISTER CUSTOM PROPERTY TYPE HANDLER</span><br />Set&lt;Class&gt; handledTypes = new HashSet&lt;Class&gt;();<br />handledTypes.add(BigInteger.class);<br />userGenerator.registerPropertyTypeHandler(<br />new AbstractPropertyTypeHandler(handledTypes) {<br />public Object handle(Object targetObject, Class attributeClass,<br />String attributeName, Map parentHandlers) {<br />return new BigInteger(24, new Random());<br />}<br />});<br /><br />// GENERATE A LIST OF USER VALUE OBJECTS<br />List&lt;User&gt; userList =<br />userGenerator.generateUsurperList(100);<br /></pre><br /><br />This is just one basic (and probably meaningless) example of what you can easily do with <span style="font-style: italic; font-weight: bold;">Usurper</span>.<br /><br />Note that <span style="font-style: italic; font-weight: bold;">Usurper</span> supports by default:<br /><ul><li>Generation of <span style="font-style: italic;">array</span> properties: if your property is a BigInteger[], all you have to do is define a handler for the BigInteger type.</li><li>Generation of <span style="font-style: italic;">Collection</span> properties: if your property is a List&lt;BigInteger&gt;, Set&lt;BigInteger&gt; or Map&lt;BigInteger,BigInteger&gt;, all you have to do is also to define a handler for the BigInteger type.</li><li>Generation of <span style="font-style: italic;">Enum</span> properties: a default handler gives random values for Enum types.<br /></li><li>Generation of <span style="font-style: italic;">Value Object</span> properties: if your property is another value object, you can easily register it through the use of the ValueObjectPropertyTypeHandler.</li></ul>If you want to learn more, and hopefully give it a try and adopt it (it is LGPL licensed), follow this link:<br /><a href="http://www.org-libs.org/org-lib-usurper">http://www.org-libs.org/org-lib-usurper</a></div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-03-22T00:00:00+01:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2007</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2007/03/22/mocking-stubbing-and-usurping_6455/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2007/03/22/mocking-stubbing-and-usurping_6455/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/01/05/paroli-aux-agi/" title="Previous Post: Paroli aux agi">&laquo; Paroli aux agi</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/04/17/tdd-tet-and-ttd/" title="Next Post: TDD, TET, and TTD...">TDD, TET, and TTD... &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

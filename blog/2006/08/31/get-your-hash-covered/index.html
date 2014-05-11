@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Get Your Hash Covered! - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="Today, after a long and truly joyful refactoring session, I stumbled on this article about hashcode() method&#8217;s coverage.Which reminded me of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2006/08/31/get-your-hash-covered">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Get Your Hash Covered!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-08-31T00:00:00+02:00" pubdate data-updated="true">Aug 31<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Today, after a long and truly joyful refactoring session, I stumbled on this <a href="http://www.informit.com/articles/article.asp?p=438990&rl=1">article</a> about hashcode() method&#8217;s coverage.<br />Which reminded me of David dossot&#8217;s <a href="http://ddossot.blogspot.com/2006/08/coverage-generation-or-generations-of.html">blog entry</a> dealing with the problem of coverage.<br /><br />It made me wonder a lot about the big difference between rich client software and J2EE middle tier software : test coverage.<br /><br />If hashcode() methods&#8217; coverage is so hard to obtain or at least can be so boring to do when you have tenth of value objects in your code, at least it can be done!<br /><br />I for myself feel completely lost and have no clue on how to unit test the code of an eclipse plugin or the code of an Eclipse RCP app&#8230;<br /><br />As a good (well trying to&#8230;) J2EE developer and POJO fan, I tend to encapsulate all my specific logic in specific as-POJO-as-can-be classes.<br /><br />Therefore making these classes testable.<br /><br />But what about the real tricky-buggy part of these apps: GUI!<br /><br />I for myself am missing a lot of tricks and patterns for testing this.<br />And by testing, I mean unit-testing. Because GUI also diserves it. And not only integration tests.<br /><br />In the end when you think about the code of an Eclipse plugin&#8217;s UI and the strategies you&#8217;d have to use to unit-test it&#8230; hashCode() seems like bliss ;)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+I have the feeling that <A HREF="http://jcp.org/en/jsr/detail?id=305" REL="nofollow">JSR 305</A> could help here: if we use annotations like @NonNull, the IDE could then more intelligently generate less defensive code. Some checks for null could go away, leading to less conditional paths.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-08-31T00:00:00+02:00" pubdate data-updated="true">Aug 31<span>st</span>, 2006</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2006/08/31/get-your-hash-covered/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2006/08/31/get-your-hash-covered/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2006/08/24/my-kingdom-for-release/" title="Previous Post: My Kingdom for a release!">&laquo; My Kingdom for a release!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2006/12/17/mobilis-in-mobili/" title="Next Post: Mobilis in mobili">Mobilis in mobili &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

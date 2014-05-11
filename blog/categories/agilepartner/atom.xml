@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: AgilePartner | ZePaG's blog, As if you cared...]]></title>
+  <link href="http://zepag.github.io/blog/categories/agilepartner/atom.xml" rel="self"/>
+  <link href="http://zepag.github.io/"/>
+  <updated>2014-05-11T15:39:33+02:00</updated>
+  <id>http://zepag.github.io/</id>
+  <author>
+    <name><![CDATA[Pierre-Antoine Grégoire]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mule Will Do the Hard Work, I'll Do the Reading]]></title>
+    <link href="http://zepag.github.io/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/"/>
+    <updated>2009-08-10T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading</id>
+    <content type="html"><![CDATA[<div class='post'>
+<a href="http://ddossot.blogspot.com/2009/07/mule-in-action-now-treeware.html">http://ddossot.blogspot.com/2009/07/mule-in-action-now-treeware.html</a><br />Mule in Action has been out for a while now, though as I don't live overseas (well...depends from the point of view... or not... ;) ) it took a bit of time before I received my order.<br /><br />I'm now the very glad owner of a "Mule in action" book.<br /><br />I can only recommend it to anybody wanting to deal with the donkey beast.<br />It is fully packed with ESBntegration knowledge, from basic to very technical details!<br /><br />Everything you should know about Mule 2.x is in this book.<br /><br />Very good work from the very brilliant David and John!<br /><br />Go and <a href="http://www.manning.com/dossot">order it</a>!</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+Ce commentaire a été supprimé par un administrateur du blog.</div>
+</div>
+<div class='comment'>
+<div class='author'>zepag</div>
+<div class='content'>
+Stop complaining, at least you&#39;ve got 4 readers ;)<br />I&#39;m afraid I only advertised the book to its author ;)</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Oh no, all the 4 readers of my blog have bought Mule in Action, who&#39;s gonna buy it now?!<br /><br />PS. Thanks for the plug ;-)</div>
+</div>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

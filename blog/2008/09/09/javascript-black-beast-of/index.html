@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Javascript: The Black Beast of Aaaaarrrrgggghhhh (Part 2) - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="First part of this &#8220;series&#8221; introduced basic concepts of the javascript language.This new entry will introduce the functional nature of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2008/09/09/javascript-black-beast-of">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Javascript: The Black Beast of Aaaaarrrrgggghhhh (Part 2)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-09T00:00:00+02:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+First part of this &#8220;series&#8221; introduced basic concepts of the javascript language.<br />This new entry will introduce the functional nature of javascript.<br /><br /><br />In javascript, there is (almost) no limit to where a function can be defined (as opposed to a class language like java for example). It doesn&#8217;t even have to have a name and can be defined anonymously. A function can also be created as a local variable in another function&#8217;s body (inner function).<br /><br />Functions represent the real power of javascript. Not understanding them means not understanding javascript.<br /><br />Javascript uses functions all around. Functions are <b>objects</b>, and as such can be passed as parameters to other functions, or returned from other function&#8217;s invocation.<br /><br />As there is no proper class, one may think that there is no such thing as a method. This is not really the case. In fact one may call &#8220;method&#8221; any function defined as an attribute to an object.<br /><br /><pre name="code" class="javascript"><br />var myObj={<br />    myAttribute:"valueOfAttribute",<br />    myMethod: function(){<br />        if(console){<br />            console.log("hello universe");<br />        }<br />    }<br />};<br /></pre><br />Functions are (almost) always stored in a variable of some kind, and can even be stored in local variables. <br />In fact, defining a function in an html script tag like this:<br /><pre name="code" class="javascript"><br />function myFunction(){<br />    if(console){<br />        console.log("hello universe");<br />    }<br />}<br /></pre><br />&#8230; is completely equivalent to the following definition:<br /><pre name="code" class="javascript"><br />var myFunction=function(){<br />    if(console){<br />        console.log("hello universe");<br />    }<br />};</pre><br />This form is much clearer, as there is now no ambiguity about its object nature and about where it is stored&#8230; at least when you understand another little thing&#8230;<br /><br /><span style="font-size:140%;">The global object:</span><br /><b><br />In javascript, if you don&#8217;t use the var keyword, or if you define variables in no specific construct </b>(e.g. not in a function, an object, an array, or any conditional construct like if, for&#8230;etc), <b>variables are defined as attributes to the global object. The global object depends on the runtime you are coding for. In a browser, this global object is the <u>window</u> object.</b><br /><br />Now read my lips: <b>&#8220;GLOBAL OBJECT IS EVIL&#8221;</b>. This global space is the worst place for the definition of your code. Oh, and by the way, variables defined without the var keyword are <u>always</u> defined as attributes of this global object, regardless of their scope.<br /><br />So, what&#8217;s the solution to this?<br /><br />Create your own <b>namespace</b>! <br /><br />You&#8217;ll often ear about namespaces in the javascript world. In fact, this just refers to a container (javascript object) containing all the objects, states  and functions needed for your code. This allows you not to pollute the global namespace (though this is not sufficient to disallow access to private states, wait for 3rd part of this blog series on the module pattern).<br /><br />YahooUI started this trend with the YAHOO namespace. Other frameworks have also created their namespace(s) (Ext.* for ExtJS, dojo.* for Dojo, a global &#8220;$&#8221; or &#8220;jQuery&#8221; object for JQuery, Prototype.* for prototype, etc&#8230;). This allows the use of various &#8220;libraries&#8221; that are less likely to collide, or at least in a more controlled fashion.<br /><br />As demonstrated in previous blog entry, creating an object, and therefore a namespace, is very easy:<br /><pre name="code" class="javascript"><br />var MyNamespace={};<br /></pre><br />And now adding elements to this namespace is as easy as invoking<br /><pre name="code" class="javascript"><br />MyNamespace.myElement="element's value";<br />MyNamespace.myFunction=function(){<br />    if(console){<br />        console.log("hello universe");<br />    }<br />}<br /></pre><br />You can see that the function we mentionned before is now defined in a custom object (namespace) and that we can therefore invoke:<br /><pre name="code" class="javascript"><br />MyNamespace.myFunction();<br /></pre><br />This exemple is of course very simplistic, and not very secure. In fact any code can replace these states, because objects don&#8217;t have scopes! Let&#8217;s detail this mind-boggling fact.<br /><br /><span style="font-size:140%;">Objects don&#8217;t have scopes, functions do</span><br /><br />When you create an object, its state is public and accessible to any code that has access to the object in the first place. Any other code can add, remove and update entries from this container.<br /><br />The only mean of reducing scope in javascript is functions. Hence the functional nature of the language.<br /><br />Whatever is defined in a function is only accessible to this function and to any other construct defined in this function. <b>The only visible thing from a given function, is the result from its invocation.</b><br /><br /><pre name="code" class="javascript"><br />var myFunction=function(){<br />    var myVar="hello universe";<br />    // let's create an object accessing this 'private' state<br />    var result={<br />        myPublicVar:myVar+", I'm a public variable"<br />    };<br />    return result;<br />}<br />// next line will output undefined, because myVar is local to the function only.<br />console.log(myFunction.myVar);<br />// the next one will output 'hello universe, I'm a public variable', because the object returned by the invocation has access to the context of the function it was defined in (by the way, this is what is usually called access through a closure).<br />console.log(myFunction().myPublicVar);<br /></pre><br />As you may have noticed, and as a little conclusion to this post, one thing you really have to be careful with when reading or writing javascript code, is the presence of <b>()</b>. Whether a function is invoked or not is really important. This will determine whether you are left with the function object itself, ready to be invoked at will, or with the result from this function&#8217;s invocation. <br /><br />This is it for the moment. next entry will deal with the constructors (and the other ways to invoke a function), the concept of module, the truthy/falsy idea, and also give credit to the reference(s) used to build this little introduction to javascript ;).</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-09T00:00:00+02:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>Javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2008/09/09/javascript-black-beast-of/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2008/09/09/javascript-black-beast-of/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/06/21/springone08-restful-web-services/" title="Previous Post: SpringOne08: RESTFUL Web Services">&laquo; SpringOne08: RESTFUL Web Services</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/09/11/javascript-black-beast-of_11/" title="Next Post: Javascript: The Black Beast of Aaaaarrrrgggghhhh (part 3)">Javascript: The Black Beast of Aaaaarrrrgggghhhh (part 3) &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Status of OSGi - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="OSGi bashing seems to be a widely appreciated sport these days.The worrying part is where it comes from.As a disclaimer, I&#8217;d like to state &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2011/06/26/status-of-osgi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Status of OSGi</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-26T00:00:00+02:00" pubdate data-updated="true">Jun 26<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+OSGi bashing seems to be a widely appreciated sport these days.<br />The worrying part is where it comes from.<br /><br />As a disclaimer, I&#8217;d like to state that I quite love OSGi, because it provides <a href="http://osgithoughts.blogspot.com/2011/05/java-se-8-modularity-requirements.html">dynamic modularity, lifecycle and many other things Java SE is lacking</a>, and something the upcoming Java SE 8 modularity is not likely to provide. Besides that, it&#8217;s available now and has been for a while!<br /><br />This being said, OSGi is currently widely-used (at least this is where I see it used, not an exhaustive report):<br /><ul><li>in the embedded world (where it comes from)</li><li>in Software vendors products</li><li>in the core of IDEs or tools (mostly Eclipse of course) and application servers</li><li>Eclipse RCP rich clients</li></ul><br />OSGi coming from the embedded world, the enterprise software scope has only been very recently integrated. <br />Even though tooling is getting better with time (<a href="http://www.aqute.biz/Bnd/Bnd">Bnd</a>, <a href="http://www.springsource.org/bundlor">Bundlor</a>, <a href="http://ops4j1.jira.com/wiki/display/paxrunner/Pax+Runner">Pax</a> and many more&#8230;), frameworks are easing development a lot (<a href="http://www.springsource.org/osgi">Spring dM</a>, <a href="http://felix.apache.org/site/apache-felix-ipojo.html">iPOJO</a>&#8230;etc), and many companies are providing quality solutions and investing in it, OSGi doesn&#8217;t seem to gain a lot of interest in mainstream development. Let me rephrase this explicitly: OSGi doesn&#8217;t seem to gain the interest it really diserves.<br /><br />The main problem is context. When development is shifting towards more deployment flexibility, the <b>rigor</b> of OSGi in this domain is both a <b>bliss</b> and a <b>curse</b>.<br /><ul><li>a bliss as it makes things really manageable at any scale.</li><li>a curse because of the difficulty for newcomers to easily integrate the dependency mechanisms and more important the difficulty to grasp/solve dependency issues.</li><br /></ul><br />This last point is quite important, as it is what has made people rant about Maven (and this still goes on) since its inception.<br /><br />Easing dependency management is already difficult statically, so doing it dynamically is even harder. OSGi is REALLY doing a great job in this domain.<br /><br />The main issue is that average enterprise developers, not the very clever ones hired e.g. by Oracle for the Glassfish team or by Spring for Eclipse Virgo (shameless plug there, I know or have met with people from these teams ;) ), don&#8217;t want to deal with dynamic dependencies. Just as they don&#8217;t want to deal with multicore development. Average enterprise developers want this to be hidden from them. This can be seen in each and every specification of JavaEE which seems recently to focus mostly on ease of development, sometimes leaving out ease of operations and flexibility. Enterprise developers don&#8217;t want to know about multithreading or dynamic modularity. <br /><br />Don&#8217;t get me wrong, I think it&#8217;s a shame. And once again I think OSGi is one of the best solutions for dynamic modularity.<br /><br />Still when companies which embraced OSGi and invested a lot in it back out, things don&#8217;t look very good.Mulesoft&#8217;s founder Ross Mason <a href="http://blogs.mulesoft.org/osgi-no-thanks/">started</a> this a while ago after being disappointed by OSGi as a component model for Mule ESB. The Glassfish team embraced it, but only by hiding it behind the custom <a href="http://java.net/projects/hk2/content">HK2</a> core model. The JBoss Team has implemented an <a href="http://community.jboss.org/wiki/JBossOSGi">abstraction</a> above its microcontainer allowing to use OSGi, once again hiding it behind a custom layer.In the enterprise world, the only major actor (I mean no insult to the very brilliant smaller companies which provide quality OSGi enterprise solutions) embracing the OSGi model directly is (was?) SpringSource/VMWare.<br /><br />What came as a surprise is Rod Johnson&#8217;s recent <a href="http://www.theserverside.com/news/2240037102/OSGi-Not-Easy-Enough-to-Use-Not-as-Productive-as-it-Should-Be">words</a> on that. Rob Harrop also backed this. Their seem to conclude that OSGi is hard to be made productive.Stated like this it&#8217;s not really fair.There is little doubt OSGi is lacking many productivity boosters now found in modern frameworks: Convention over Configuration, Annotation based development helpers, Aspects, Transactions handling &#8230;etcNevertheless I know for a fact that there are <a href="http://www.eclipse.org/virgo/">good</a> <a href="http://felix.apache.org/site/apache-felix-ipojo.html">solutions</a> <a href="http://www.paremus.com/products/products.html">in the</a> <a href="http://karaf.apache.org/">OSGi world</a>. In fact, I think that if one compares OSGi to other dynamic modularity mechanisms, it is quite productive. It should not be compared directly to component models that leave out this dynamicity.<br /><br />The problem I see is that the OSGi world seems to be stuck in an oldish development model that fits well enough the embedded world it comes from (where the aforementioned development boosters are not really key features). Hence my recent comment on OSGi being stuck in the smart card age, which I should have rephrased as &#8220;OSGi is still held back by its embedded focus&#8221;.<br /><br />OSGi specifications should now enforce development boosters and not provide them as optional choices.<ul><li>It should be possible to create an OSGi bundle without a Manifest.mf file.</li><li>It should be possible to create an OSGi service providers/consumers just by adding an annotation to a class.</li><li>It should be possible to handle transactions easily.</li><li>It should be easy to operate bundles replacement.</li></ul>Well be glad, all of this is possible. Then be sad, as major vendors seem to turn their back on it.<br /><br />Two things in the end are really missing.<br />One thing really missing is an official repository (à la Maven Central) for OSGi bundles, provided by the OSGi alliance. Because adapting some existing libraries as bundles is really hard and requires a very good knowledge of the inner mechanisms of OSGi. What Springsource provides could be a good template for this.<br />The other thing missing is incentive for existing libraries/frameworks to provide OSGi compatible versions of their components. With companies like SpringSource sending mixed messages, it will become difficult to fuel this&#8230; Though one can&#8217;t blame them for thinking that nodejs, rails, grails and such bring a breeze of fresh air to a regular OSGi developer ;)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>jamie archibald</div>
+<div class='content'>
+After using OSGi for a few years now and also having experience in J2EE and Spring I can see why people get scared. OSGi is great for modularity but is severely lacking the tooling that enterprise developers use daily that makes their lives/jobs easier and less frustrating.<br /><br />I have used OSGi in cases where hot deploying a jar file is extremely useful. This is especially true in cases where the internet feed to your production machine has very little bandwidth.<br /><br /></div>
+</div>
+<div class='comment'>
+<div class='author'>Pierre-Antoine Grégoire</div>
+<div class='content'>
+Well thank you, even though it was written 2 years ago and &quot;current&quot; tools may have evolved ;)</div>
+</div>
+<div class='comment'>
+<div class='author'>Justin Fleming</div>
+<div class='content'>
+Great Blog, I found this information very useful when researching OSGi.  Currently the thought of refactoring a large J2EE EAR / Spring DI / Hibernate / JPA project into OSGi bundles scares me to death as I have no idea where to begin.  I feel you have made good points about current vendors tools as well.</div>
+</div>
+<div class='comment'>
+<div class='author'>Neil Bartlett</div>
+<div class='content'>
+Perhaps you mistyped something. Did you mean &quot;withOUT a modularised approach you&#39;ll have a hard time tracking what&#39;s actually running in your server (what modules, at what versions, and has this combinations been through QA?&#8230;)&quot;?<br /><br />Because I honestly cannot imagine how a non-modular approach &#8211; i.e. omitting all information about dependencies between modules, versions of those dependencies, versions of the modules themselves &#8211; could possibly HELP with any of the concerns you listed.</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Conceptually, modularity is awesome. Developing with services that have well defined lifecycles, segregated classloaders, interfaces and version numbers sounds like a good idea.<br /><br />In practice though, unless you&#39;re developing plug-in driven type of applications (like Eclipse), people seldom need such modularity. Applications are assembled, versioned and then deployed. No-one thinks of hot replacing a JAR at runtime as the best approach to fixing production: push-button deployment of an application as a whole gives excellent result and more predictability.<br /><br />Indeed, with a modularized approach you&#39;ll have hard time tracking what&#39;s actually running in your server (what modules, at what versions, and has this combination been through QA?&#8230;).<br /><br />For most the apps out there, OSGi modularity seems that it gives you the wrong seam for your architecture. Using messaging provides a better way of decoupling modules with semantics that cleanly support time decoupling. Actors provide a better decoupling for concurrency.<br /><br />My 2c.<br />D.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-26T00:00:00+02:00" pubdate data-updated="true">Jun 26<span>th</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2011/06/26/status-of-osgi/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2011/06/26/status-of-osgi/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/" title="Previous Post: Feelings and pointers from my Day 1 at Devoxx 2010">&laquo; Feelings and pointers from my Day 1 at Devoxx 2010</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/" title="Next Post: My blog using Octopress and Github pages.">My blog using Octopress and Github pages. &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

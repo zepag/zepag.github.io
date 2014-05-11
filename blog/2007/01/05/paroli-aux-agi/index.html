@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Paroli Aux Agi - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="How much can a thoughtfully elaborated language evolve? How much without implying a sufficient amount of thinking about the real purpose of such an &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2007/01/05/paroli-aux-agi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Paroli Aux Agi</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-05T00:00:00+01:00" pubdate data-updated="true">Jan 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+How much can a <a href="http://esperanto.net/">thoughtfully elaborated language </a>evolve? How much without implying a sufficient amount of thinking about the real purpose of such an evolution?<br /><br />This sounds philosophical but is not the start of a discussion about <a href="http://en.wikipedia.org/wiki/Philology">philology</a> (litteraly  &#8220;the love of words&#8221; in ancient greek and <a href="http://www.merp.com/essays/MichaelMartinez/copy_of_hobbitryinarmchairs">J.R.R Tolkien&#8217;s speciality</a>), as what I&#8217;m going to talk about is the current evolution of the java language and the java platform as a whole.<br /><br />There seems to be so much debate on language subjects such as <a href="http://gafter.blogspot.com/2006/12/closures-talk-and-spec-update.html">closures</a> and <a href="http://gafter.blogspot.com/2004/09/puzzling-through-erasure-answer.html">erasure/reification</a>&#8230; All these debates are really interesting and I think these are indeed good moves.<br /><br />But this seems like pulling a beautiful napkin on a dirty table : JEE&#8230;Well ok this is a bit exagerated, but I mean that the focus on ease of development for this release of the platform completely removed the focus from the ease of management of applications at runtime.<br /><br />All this focus on ease of development and productivity improvements is a really good move anyway. But I think that if the brilliant minds discussing on these difficult language/JVM subject could allocate a bit of their time to JEE&#8217;s architecture, we would finally have something a little bit more production-ready than now.<br /><br />Do I need to remind that nowadays each and every peace of software is upgradeable and manages its version in one way or another (Firefox, Eclipse, Linux with packages, all MacOS software, even Microsoft software&#8230;etc).<br /><br />Yet JEE 5.0 applications still don&#8217;t/won&#8217;t have any conventions on versions of deployed artifacts&#8230;<br />Is this because this kind of version management is complete fantasy?&#8230;no.<br /><br />In fact, <a href="http://www.osgi.org/">OSGI</a> implementations already provide this scheme for java applications. A fair amount of java developers have already experienced this through the plugin and update site mechanism of Eclipse through the Equinox OSGI implementation.<br />The very famous Spring framework also provides an alpha <a href="http://www.springframework.org/osgi">OSGI support</a> for Spring-enabled applications.<br />A <a href="http://www.osgi.org/blog/2006/02/jsr-291-dynamic-component-support-for.html">JSR</a> has even been started proposing the support by the JDK and/or J2EE of OSGI.<br /><br />So why in the hell WHYYYY did some &#8220;clever&#8221; folks think they could flush this away (sewers once again) and try to push in the JDK a somehow neither tested nor sufficient <a href="http://www.osgi.org/blog/2006/10/jsr-277-review.html">JSR</a> for a Java Module System (JMS acronym is already used BTW)&#8230;instead of contributing improvements to the already tested and proven useful OSGI initiative.<br />If you look at how this <a href="http://jcp.org/en/jsr/detail?id=277">JSR</a> (see 2.6) sweeps away OSGI in a paragraph as simplistic, you can see how much the &#8220;not invented here&#8221; motto can get in action&#8230;<br /><br />It&#8217;s a bit sad to see how the focus on the language and/or a narrow view of the use of java is done at the expense of the view on architecture and/or live management of applications in IT systems.<br /><br />The same way <a href="http://en.wikipedia.org/wiki/Esperanto">Esperanto</a> was a good idea and a cleverly elaborated language, is java becoming a very clever language with no soul?<br /><br />This seems a bit desperate, and as much as I value the language improvements, I do value a lot more OSGI, Eclipse RCP and Spring framework, not because of a hype surge, but for their fair usefulness and clean design.<br /><br />Wouldn&#8217;t it be a lot cleaner to have a common jar pool/repository in a j2ee server (clearly specified in the repository) with a simple version handling (similar for example to the structure of a Maven or Ivy repository), and to add, say, a &#8220;dependencies.xml&#8221; file to the different deployable. This, along with a clear classloading scheme in the specification would allow people to deal with versions management.<br /><br />(BTW the JSR 277 people didn&#8217;t even think about J2EE when elaborating it&#8230;what a clever move&#8230;&#8230;..not!)<br /><br />Wouldn&#8217;t it be clean to have a &#8220;myapp-1.0.0.war&#8221; archive in a JEE server, and just have the ability to replace it at runtime by dropping a &#8220;myapp-1.0.1.war&#8221; and let the server handle the replacement and the dynamic linkage to the appropriate libraries?<br /><br />This definitely wouldn&#8217;t be easy to implement, but woudn&#8217;t it be a better place for the focus of brilliant minds than a meaningless struggle with Rubyists?<br /><br />I for myself prefer a lot design to language improvements.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+You are so right. But truly people in Google (like Neal Gafter) are not facing the same kind of problems we are. While we are facing plumbers&#8217; issues, they are dealing with couturiers&#8217;.<br /><br />Anyway, it seems that IONA has introduced <a href="http://www.iona.com/support/docs/e2a/asp/5.0/j2ee/DevelopGuide/html/setup-iPAS4.html">some support for JAR dependencies</a> in their application server configuration. It is pretty basic, no versioning, but a start.<br /><br />A perfect system would work with version patterns a la Maven2.<br /><br />Hey about writing an alternate class loader for JBoss that supports this concept? What do you do between midnight and 2am?</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-05T00:00:00+01:00" pubdate data-updated="true">Jan 5<span>th</span>, 2007</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2007/01/05/paroli-aux-agi/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2007/01/05/paroli-aux-agi/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2006/12/17/mobilis-in-mobili/" title="Previous Post: Mobilis in mobili">&laquo; Mobilis in mobili</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/03/22/mocking-stubbing-and-usurping_6455/" title="Next Post: Mocking, Stubbing, and Usurping">Mocking, Stubbing, and Usurping &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

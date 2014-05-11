@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="DBA-Developer relationship, try to improve it&#8230; ok&#8230; too bad DBAs are not there to here that ;)Operational considerations:- Data volumes, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/page/5">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/11/springone08-persistence-optimizations/">SpringOne08: Persistence Optimizations</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-11T00:00:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+DBA-Developer relationship, try to improve it&#8230; ok&#8230; too bad DBAs are not there to here that ;)<br /><br />Operational considerations:<br />- Data volumes, row sizes<br />- Growth estimates, update frequencies<br />- Availability requirements<br />- Testing/QA requirements<br /><br />Guidelines:<br />- appropriate data types<br />- small rows<br />- split large tables with one-to-one table containing fewer used fields<br />- improve indexes<br />- normalize data<br />- partition data (if available)<br /><br /><span style="font-weight:bold;">Most important: application tuning:</span><br />- keep transactions short<br />- bulk processes => off-hours<br />- understand locking (on writes, on reads&#8230;escalation of row locks to table locks in case of many reads&#8230;)<br /><br /><span style="font-style:italic;">ORM tuning:</span><br />- watch Criteria, no NULLS in the WHERE clause, they are not indexed<br />- like with % at the beginning: no index either<br />- pick an appropriate TransactionManager (only use XA when accessing JMS and database together)<br />- use READONLY, try to avoid SERIALIZABLE<br />- use lazy-loading<br />- use caching<br /><br />JDBC Tuning:<br />- set the fetch size on connections (defaults to 10 for Oracle driver&#8230;) lessens the network roundtrips<br /><br />Hibernate Tuning:<br />- use &#8220;select&#8221; fetch mode for relationships needed sometimes - results in 1 or 2 queries.<br />- use &#8220;join&#8221; fetch mode for relationships needed all the time (try to limit to one per object)<br />- use &#8220;batch-size&#8221; to prefetch a number of proxies and/or collections<br /><br />Bulk operations:<br />- do it in the database to avoid network (SQL statement, stored procedure, native data load tools&#8230;)<br />- if you need to do it from the application: JdbcTemplate (batchUpdate), SimpleJdbcInsert (executeBatch), Spring Batch (BatchSqlUpdateItemWriter), Hibernate (set hibernate.jdbc.batch_size and flush and clear session after each batch)<br /><br />SQL Tuning:<br />- Capture SQL<br />- Run EXPLAIN<br />- adjust: analyse, tweak optimizer, add index<br />- repeat until adequate performance<br />- ASK for help from your DBA ;)<br /><br />OpenSource JDBC monitors:<br />- p6spy<br />- Elvyx<br />- JDBCSpy<br /><br />Database specific tools:<br />- MySQL (slow query log with &#8211;log-slow-queries or &#8211;log-queries-not-using-indexes)<br />- Oracle: Enterprise Manager, Statspack<br />- Oracle XA: Monitor Top SQL<br /><br />Interesting tips for Oracle:<br />- Use the call to a function setting the module name in Oracle in the validation query for the connection<br />- Use explain and autotrace in Oracle SQL Developer<br />- Use ANALYSE TABLE [table] COMPUTE STATISTICS<br />- Use ANALYSE INDEX [index] COMPUTE STATISTICS<br /><br />Database Tuning:<br />- Memory (Global Area SGA, Session Area PGA)<br />- Disk (Block size, File placement)<br /><br />Talks about a ProxyDatasource during Q&A. This seems to allow to transmit the credentials of the interactive user. Could be interesting for refactoring of legacy Oracle Forms applications.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>lle</div>
+<div class='content'>
+Instead of ANALYZE, I (an Oracle DBA) would recommand DBMS_STATS instead.<BR/><BR/>ANALYZE is deprecated since 10g.<BR/><BR/>As stated, ask your DBA ;)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/11/springone08-keynote/">SpringOne08: Keynote</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-11T00:00:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+9h30, Keynote should start any minute.<br /><br />First, the main local organizer of Spring One talks about his baby: Parleys. He shows off a very nice Flex-based UI. Flex is definitely nice, and what they&#8217;ve done with id also! Check for version 2 of Parleys very soon, it&#8217;s great!<br /><br />Rod Johnson:<br />A bit of commercial Blah&#8230; (sorry, but that&#8217;s it&#8230; :P) though the content is quite relevant.<br />This quickly turns into a (little bit) more technical talk.<br />It also contains interesting bits that I didn&#8217;t know of or have not yet tested:<br />- Use of qualifiers in Annotation and XML configuration<br />- support for Meta-Annotations (annotate annotations ;)) which allows to use your own meta-tagging for your component types and then annotate them with Spring Annotations , the org.springframework.stereotypes package also provides sensible defaults.<br />- Junit 4 support through specific runner (haven&#8217;t had the opportunity to test it yet, but will indeed do it very soon!)<br /><br />Spring Integration is mentionned there, and I think (see later in this post) that this may be very soon a very important Spring project&#8230;<br /><br />Enters Keith Donald who talks about the web tier.<br />Interesting Javascript module&#8230; worth following&#8230;<br /><br />Rod Johnson again:<br />Spring Powered applications: replaces more and more the JEE container.<br />Decoupling of business logic from deployment platform in terms of choice. (can be argued with their new server which relies a lot on Spring ;) ).<br />Obviously leads to Springsource Application Platform.<br /><br />Christian Dupuis:<br />Nice presentation of STS. Should have been preceded by a SpringSource AP in-depth presentation.<br /><br />Peter Cooper-Ellis, comes from BEA, and gives a little talk about his view of SpringSource and Spring.<br /><br />Rod Johnson:<br />Predictions => most interesting: app server and ESB fusion (see Spring integration merging with Spring AP ;), it seems so obvious)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Hedgehog</div>
+<div class='content'>
+I was hoping for Ben Alex on Spring Security Two, but he&#8217;s not attending. I was a bit disappointed with a talk on Spring Security that barely scratched the surface.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/06/10/spring-one-minus-one/">Spring One Minus One</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-10T00:00:00+02:00" pubdate data-updated="true">Jun 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Just to tell the few potential readers of this blog that I&#8217;ll blog about Spring One the two coming days from Antwerpen, Belgium.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Your readers is looking forward ;-)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/10/26/almost-paired-programming-shrink/">Almost-paired Programming, the Shrink Principle and Beer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-26T00:00:00+02:00" pubdate data-updated="true">Oct 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This strange thought occured to me yesterday:<br />It is quite disturbing to see how coding can be close to a psychiatric sickness.<br /><br />I was gently coding through a piece of code while being often disturbed by phone calls, meetings and other daily stuff.<br /><br />The obvious outcome was a messy code with an almost as much messy runtime result.<br /><br />At that precise moment, I was having a hard time focusing on this &#8220;algorithm&#8221; and the fact that the states in my java code could possibly be accessed from multiple threads was going to make things less easy.<br /><br />Therefore, with all that mess in my mind and my phone ringing now and then, I started commenting my code to make it readable (a bad habit indeed, as code should be self-readable by separating concerns in methods with readable names and sharing states in richly defined objects&#8230; but anyway&#8230;).<br /><br />When I was over commenting, the code did not behave any better, but was interweaved with rich textual descriptions.<br />Though it seemed that the added comments did not go further than the limitations I was already feeling (remember? difficulty to focus and phone ringing).<br />The comments themselves where sitting on top of the pile of messy code I had produced, with no added value as they were a direct transcription of how I was reasoning at that moment.<br /><br />So I decided to remove all these comments and to create a few rich immutable objects for states, and using ConcurrentHashMap and Atomic* all around.<br />My code was indeed completely thread-safe.<br /><br />But still&#8230; its behaviour was the same: not what I expected.<br /><br />So I decided to call in for help.<br /><br />I turned to one of my dear colleagues, and asked him to lend me a bit of his time in order to have a second look on my piece of code.<br />In fact, I couldn&#8217;t even think of a new way to look at it.<br /><br />Indeed, he gently accepted and sat next to me in order to look at my uncommented (if  he reads this, he&#8217;ll eventually remember telling me how messy and uncommented it looked ;) ) piece of over-immutable code.<br /><br />And then began an uncontrolled shrink scene.<br /><br />Here&#8217;s how this dialog (approximatively and &#8220;embellished&#8221; a bit) turned out:<br /><br /><span style="font-weight:bold;">me:</span> &#8220;So here&#8217;s my code, here is what it does, and things are all immutable and stuff&#8230;&#8221;<br /><span style="font-weight:bold;">colleague-shrink:</span> &#8220;Mmmmh mmh&#8230; So here&#8217;s your code, here is what it does, and things are all immutable and stuff?&#8221;<br /><span style="font-weight:bold;">me:</span> &#8220;eh yes, look I&#8217;ve toggled breakpoints all around and I can&#8217;t seem to see anything wrong&#8221;<br /><span style="font-weight:bold;">colleague-shrink:</span> &#8220;Mmmmh mmh&#8230; So You&#8217;ve toggled breakpoints all around and You can&#8217;t seem to see anything wrong?&#8221;<br /><span style="font-weight:bold;">me:</span> &#8220;Oh no! this little thingy was there all the time&#8230;my algorithm was missing one point and I was looking for a synchronization issue. Well thank you for solving this issue with me!&#8221;<br /><br /><br />And then it occured to me that (even if my colleague would probably have solved this problem quite fast) the only presence of a real person to whom you explain your code acts like a catharsis for solving bugs.<br /><br />Though this is not very new and one of the basis of paired programming, the parallelism with the shrink made me a bit uneasy.<br /><br />Do I have to pay my colleague now, in order for the treatment to be efficient? ;)<br /><br />So I now decided that this would now be rewarded by beers. So if you happen (or happened) to be my code-shrink, don&#8217;t hesitate to reclaim your beverage!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>zepag</div>
+<div class='content'>
+a beer&#8230; it&#8217;s indeed really cheap for a shrink :p</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Mmmh? No question about your childhood? Sounds like a cheap shrink to me ;-)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/22/spring-one-day3-spring-dynamic/">Spring One (Day3) : Spring, Dynamic Languages and DSLs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/__O-4q_CaPyA/Rnu1Pf_bQkI/AAAAAAAABG8/cXMEJegHHfA/s1600-h/DSC00218.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://2.bp.blogspot.com/__O-4q_CaPyA/Rnu1Pf_bQkI/AAAAAAAABG8/cXMEJegHHfA/s320/DSC00218.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078852282680558146" /></a><br /><br /><br />Rob demonstrates how to use JRuby with java with Spring and standalone.<br /><br />A little demo of the spring integration.<br /><br />Followed by a demo of <i>mscript.db</i> allowing to interact with JMX using JRuby scripting. Very powerful indeed. This will be in my toolbox ASAP! ;)<br /><br />He also advertises &#8220;The Ruby way&#8221; as a good book to read for starters on Ruby.<br /><br />Then on to the DSLs!<br />It is sad to see that support is for now a little hacky (fun and well done though) and that official support won&#8217;t be there until Spring 2.2 or 2.3.<br /><br />Definitely worthy of attention at the end of the day.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/22/spring-one-day3-spring-batch/">Spring One (Day3) : Spring Batch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/__O-4q_CaPyA/RnvB4__bQlI/AAAAAAAABHE/hMthWIICrDo/s1600-h/DSC00219.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://4.bp.blogspot.com/__O-4q_CaPyA/RnvB4__bQlI/AAAAAAAABHE/hMthWIICrDo/s320/DSC00219.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078866189784662610" /></a><br /><br />Last presentation!!!<br />Spring IDE&#8217;s presentation occured at the same time, but as I already knew a bit about it&#8230; I skipped. But go and get release 2.0 (released next week if I&#8217;m not wrong) it is amazingly productivity-inducing!<br /><br />And now on to Spring Batch.<br />This new product of the portfolio allows to deal with batching.<br />It was a project built by Accenture and is now a co-project of Accenture and Interface 21.<br /><br />It starts from the statement that nothing exists covering that subject in Java, and that there&#8217;s a common misconception about the fact that Batch is not possible nor efficient in java.<br /><br />It seems really complete and well-thought and is already production-grade.<br /><br />I really dig the Enterprise Message-driven processing, sadly it&#8217;s not targetted for version 1.0.<br /><br />Features:<br /><ul><br /><li>multiple formats for files</li><br /><li>Automatic retries</li><br /><li>Job control language (start, stop, suspend, cancel)</li><br /><li>status and statistics</li><br /><li>Entry points for launch (http, Unix script,incoming message, etc&#8230;)</li><br /><li>Ability to run concurrently with OLTP system</li><br /><li>Ability to use multiple transaction resources</li><br /><li>Support services (logging&#8230;etc)</li><br /></ul><br /><br />It really deals very well with batch retries at multiple levels, with a fairly rich set of possibilities.<br />Coding is (obviously one would say) POJO based, and batch behaviour is non-invasive.<br />Business logic is completely separated from job execution policies.<br /><br />The really interesting stuff not mentionned but implicit is that jobs can now be thoroughly unit tested (not integration tested, UNIT tested with mocks and everything!!).<br /><br />JMX Management is soon to be released. (How about batches launched from JRuby?)<br /><br />Roadmap:<br />Milestone 2 is soon to be released.<br />In the future:<br />Partitioned container,SEDA,Grid, ESB support, and more&#8230;</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+besoin de verifier:)</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Thanks a lot for tour coverage of the event!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/22/spring-one-day3-roo/">Spring One (Day3) : ROO</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/__O-4q_CaPyA/Rnuj_P_bQjI/AAAAAAAABG0/ZoRtdxjyrbM/s1600-h/DSC00216.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://1.bp.blogspot.com/__O-4q_CaPyA/Rnuj_P_bQjI/AAAAAAAABG0/ZoRtdxjyrbM/s320/DSC00216.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078833311810011698" /></a><br /><br /><br />ROO or Real Object Oriented programming.<br /><br />It is a really nice framework part of the portfolio and enforcing the concepts part or Eric Evans&#8217; book on Domain driven design.<br /><br />It&#8217;s really a nice way to deal with the anemic model issue and is nicely integrated with tooling (Eclipse, Maven 2&#8230;etc).<br /><br />The smashing fact is that it generates and deals with DTO generation and assembly bazed on Dozer (3.4).<br />They are useful as form backing objects and for remoting.<br /><br />Until now, it is the really neatest and newest stuff I&#8217;ve seen in this conference.<br /><br />Please please please go and see Spring ROO (possibly still named Acegi ROO at that time though)!!!</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/22/spring-one-day3-osgi/">Spring One (Day3) : OSGI</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/__O-4q_CaPyA/RnuEb__bQhI/AAAAAAAABGk/b6yZbY0m7o0/s1600-h/DSC00213.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://4.bp.blogspot.com/__O-4q_CaPyA/RnuEb__bQhI/AAAAAAAABGk/b6yZbY0m7o0/s320/DSC00213.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078798621359161874" /></a><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/__O-4q_CaPyA/RnuEmf_bQiI/AAAAAAAABGs/lgPOK-3I7-I/s1600-h/DSC00215.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://2.bp.blogspot.com/__O-4q_CaPyA/RnuEmf_bQiI/AAAAAAAABGs/lgPOK-3I7-I/s320/DSC00215.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078798801747788322" /></a><br /><br />This presentation nicely sums up OSGI.<br />Key assets are:<br /><ul><br /><li><b>Visibility</b>: a bundle is a black box if not explicitely specified. Nice but does not fit with the current classloading designs where everything is in the same space (more or less)</li><br /><li><b>Operational control</b>: see modules and their status, install, activate,&#8230;bundles.</li><br /><li><b>Dealing with dynamics</b>: types and services can be exported and contributed (passive and active contribution respectively because services changes are dynamically seen).</li><br /></ul><br /><br />Then what about OSGI and Spring?<br />How do you split applications into a number of OSGI bundles<br />Bundles need: instanciation, configuration, assembly, decoration.<br />This should not be coded, this is (mostly) boiler-plate code.<br /><br />The purpose is to keep the Spring development model.<br /><br />Main entrypoint there is an OSGI bundle-based application context.<br /><br />Interesting thing is that beans can easily be exposed with a specific namespace (<b>&lt;osgi:service/&gt;</b> and <b>&lt;osgi:reference/&gt;</b>) and all the lifecycle and (re)binding of services is dealt with by Spring OSGI.<br /><br />The ConfigurableBundleCreatorTests are interesting for integration testing. It can run the test of your code inside of an OSGI container. This is really a great progress, mostly if one can set it up for testing Eclipse plugins&#8230;<br /><br />Provisioning with Maven and Ivy is also a catch and is planned for after version 1.0 (part of Maven support already is included in pre 1.0 though).</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/21/spring-one-day2-ws-ducktyping/">Spring One (Day2) : WS-DuckTyping</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-21T00:00:00+02:00" pubdate data-updated="true">Jun 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/__O-4q_CaPyA/Rnpzq__bQeI/AAAAAAAABGM/H0GmCQhtA3Q/s1600-h/DSC00204.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://3.bp.blogspot.com/__O-4q_CaPyA/Rnpzq__bQeI/AAAAAAAABGM/H0GmCQhtA3Q/s320/DSC00204.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078498712382816738" /></a><br /><br /><br />How to extend the concept of Duck typing to webservices.<br /><br />Duck typing is a feature of dynamic languages: &#8220;if it walks like a duck and sounds like a duck, then its a duck&#8221;.<br /><br />Basics are:<br /><ul><br /><li>Don&#8217;t validate incoming messages</li><br /><li>Use XPath</li><br /><li>Don&#8217;t create stubs and skeletons.</li><br /></ul><br /><br />One rule is: sending should be conservative, and receiving liberal.<br /><br />Schematron seems interesting in this approach because it is based on finding <i>tree patterns</i> (RelaxNG also does this).<br />More simply, XPath allows to look for an info without assuming that the surroundings (things out of the path) have any strict structure.<br /><br />Spring WS 1.0 RC2 is out and based on contract-first and XML use without directly doing XML.<br /><br />There are a lot of cool XML and particularly XPath helpers in this release, even if you don&#8217;t need to use it for web services.<br />XPathTemplate, NodeMapper, and annotations make it very handy and easy to use XML with the ability to switch implementations.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/21/spring-one-day2-new-features-in-spring/">Spring One (Day2) : New Features in Spring 2.1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-21T00:00:00+02:00" pubdate data-updated="true">Jun 21<span>st</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/__O-4q_CaPyA/RnqrAv_bQgI/AAAAAAAABGc/629r9JNzh1I/s1600-h/DSC00209.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://2.bp.blogspot.com/__O-4q_CaPyA/RnqrAv_bQgI/AAAAAAAABGc/629r9JNzh1I/s320/DSC00209.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078559559184499202" /></a><br /><br /><br />This will be a list of what is described:<br /><br />Platforms:<br /><ul><br /><li><b>JDK 1.6</b> (JDBC 4.0, JMX MXBeans, JDK ServiceLoader API)</li><br /><li><b>Java EE 5.0</b> (Servlet 2.5,JSP 2.1, JSF 1.2, JTA 1.1, JavaMail 1.4,EJB 3.0 session beans,JPA even inside JEE 5.0 server, Deployment as JCA 1.5 RAR file, Websphere integration through specific addons)</li><br /><li><b>OSGI support</b> (allows a similar programming model between OSGI or J2EE deployment)</li><br /></ul><br /><br />Configuration:<br /><ul><br /><li><b>JSR 250 Common annotations</b>(now supported by all JDK 1.6 and Java EE 5, and JDK 1.5 with the common annotations jar)</li><br /><li><b>@Autowired annotation</b> (fits well between name and type autowiring)</li><br /><li><b>&#8220;context&#8221; configuration namespace</b> (convenient context-relative functionalities)</li><br /><li><b>@Component annotation</b></li><br /></ul><br /><br />AspectJ Support:<br />cf. previous presentation I blogged about.<br /><br />@Configurable Revisited:<br />no AspectJ compiler necessary (based on load-time weaving)<br /><br />JMS Message Listener Containers:<br />&#8220;jms&#8221; XML Schema Namespace<br /><br />JCA 1.5 Namespace also<br /><br />still to come (not in RC versions):<br />Junit 4 support and Rhino/javascript support.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/6/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/4/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I&#8217;ll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zepag';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>TDD, TET, and TTD... - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="As I am quite test infected these days, I tend to make my tests run AFAP (As Fast As Possible&#8230;).This is quite an important topic when dealing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2007/04/17/tdd-tet-and-ttd">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">TDD, TET, and TTD...</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-04-17T00:00:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+As I am quite <a href="http://ddossot.blogspot.com/2007/04/seriously-infected.html">test infected</a> these days, I tend to make my tests run AFAP (As Fast As Possible&#8230;).<br /><br />This is quite an important topic when dealing with UNIT tests. In fact it&#8217;s as much crucial as encapsulation of the System Under Test. If your tests run fast, you&#8217;ll run them often. Hence the &#8220;make your tests run AFAP with a good TET (Test Execution Time) when using TDD (or not).<br /><br />This is not quite new and has been advocated by anonymous people like <a href="http://www.martinfowler.com/">Martin F</a>. (Except for the TET part which I own a copyright for&#8230;. not&#8230;)<br /><br />This is where enters TTD.<br /><br />I found myself reverting from an everyday use of MyEclipse with JBoss 4.0.x to a WTP 1.5.x/JBoss 4.0.x pair.<br />And believe me&#8230; it&#8217;s hell on earth! I was trying to explain to a colleague of mine how Struts 2 (interceptors&#8230; etc) and Spring work together, and believe me, it&#8217;s really hard to demonstrate anything efficiently when you never know the status of your deployments and when a modification of a files &#8220;sometimes&#8221; triggers an awfully slow ant task making a full redeployment of the web application!<br /><br />So it really seems that TTD (Time to deployment) affects a lot the productivity of a developer. Yet again nothing new, but it is very disappointing to see how a tool like WTP handles such a crucial task.<br /><br />My conclusion is that I&#8217;m working right now on a &#8220;Workspace to File system synchronizer&#8221; allowing to keep part(s) of your workspace in sync with another part of the file system (for example a folder in JBoss&#8217;s deploy folder, or in Tomcat&#8217;s webapps folder) hooked on the Platform&#8217;s events.<br /><br />This way, with a great TET and a marvellous TTD, I&#8217;ll be able to attain my goals ASAP.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>zepag</div>
+<div class='content'>
+Thanks Riyad,<BR/><BR/>I already (as you may know) am a frequent user of MyEclipse as Stated in this post.<BR/><BR/>I really think it&#8217;s great for this purpose and would find it very interesting to be able to only get the server deployment part of MyEclipse.<BR/><BR/>But there are some times when I have to deal with clients not wanting to pay the (very decent IMHO) fee for MyEclipse or find that MyEclipse goes against their inside recommandations by providing too many functionalities.<BR/><BR/>I&#8217;m not saying they are right though, and I really appreciate the fact that Eclipse can be improved with small dedicated features, and not only with very complete (sometimes too much) features suites.<BR/><BR/>I already have prototyped it and mean it to be very simple.<BR/><BR/>If you want I can state more clearly my appreciation of MyEclipse by editing this post ;)<BR/><BR/>Cheers</div>
+</div>
+<div class='comment'>
+<div class='author'>Riyad</div>
+<div class='content'>
+Just a quick tip that may make things easier for you.<BR/><BR/>When you use an &#8220;Exploded&#8221; deployment in MyEclipse, it is hooked into the build-loop, meaning any time you save a file, it is immediately copied out to the deployed location. No matter if it&#8217;s a Java file compiled to class then copied, XML file, properties files, JSP, etc.<BR/><BR/>In addition to that, while MyEclipse supports shortcuts for deploying to all the popular application servers out there, we also provide a &#8220;Custom Location&#8221; deployment, so you can place your deployment anywhere you want it will be kept in sync.<BR/><BR/>Also, MyEclipse offers the ability to mark Java projects as dependencies of Web and EAR projects, so it will handle easily packaging up and deploying those as well if necessary (some folks have heavy modularization needs and it&#8217;s important to them).<BR/><BR/>The last nice part of all of this is that it can all be managed from the server view. On succinct view in your perspective that lists all your app servers, their statuses (sp?) and their subsequent deployments and their individual statuses as well.<BR/><BR/>I wouldn&#8217;t normally go on and on like this, but I feel your pain and wanted to let you know there are alternatives out there before you embark on tackling the problem yourself.<BR/><BR/>Best of luck.<BR/><BR/>&#8211;NOTE: I work for Genuitec on the Support team.</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+SNATU?</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-04-17T00:00:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2007</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2007/04/17/tdd-tet-and-ttd/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2007/04/17/tdd-tet-and-ttd/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/03/22/mocking-stubbing-and-usurping_6455/" title="Previous Post: Mocking, Stubbing, and Usurping">&laquo; Mocking, Stubbing, and Usurping</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/04/24/exceptions-widest-net-effect-and-new/" title="Next Post: Exceptions, the Widest net effect and a new Exception catching syntax">Exceptions, the Widest net effect and a new Exception catching syntax &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="Interesting presentation with mostly features of GWT plus a few integration points for Spring Business layer.Sadly, no insight on future support for &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/page/7">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/20/spring-one-gwtspring/">Spring One : GWT/Spring</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-20T00:00:00+02:00" pubdate data-updated="true">Jun 20<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/__O-4q_CaPyA/RnkfTP_bQKI/AAAAAAAABDs/y4iz0nv5WBI/s1600-h/DSC00166.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://3.bp.blogspot.com/__O-4q_CaPyA/RnkfTP_bQKI/AAAAAAAABDs/y4iz0nv5WBI/s320/DSC00166.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078124470407479458" /></a><br /><br /><br />Interesting presentation with mostly features of GWT plus a few integration points for Spring Business layer.<br /><br />Sadly, no insight on future support for Java 5 Annotations, and no first idea of the upcoming version 1.4 which deals with the IsSerializable vs. Serializable issue amongst other things (modular RPC services for example removing the need for GWTHandler in order to integrate wutg spring).<br /><br />Conclusion: until further notice, DTOs should be used with the addition of a specific Service Facade Layer to the business layer and a DTOConverter (Special mention for Spring&#8217;s BeanUtils for the copy of objects&#8217; states).<br /><br />My own conclusion: wait for version 1.5 of GWT for a more completely useable GWT, and keep experimenting with it.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/06/20/spring-one-before/">Spring One: Before</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-20T00:00:00+02:00" pubdate data-updated="true">Jun 20<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/__O-4q_CaPyA/Rnj1-v_bQII/AAAAAAAABDc/3ihlmvRxpKQ/s1600-h/DSC00154.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://4.bp.blogspot.com/__O-4q_CaPyA/Rnj1-v_bQII/AAAAAAAABDc/3ihlmvRxpKQ/s320/DSC00154.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078079038243422338" /></a><br />Just arrived in Antwerpen.<br /><br />Little breakfast in the hall next to Rod Johnson rehearsing his keynote speech in a corner of the room.<br /><br />2 hours of keynote indeed diserve a rehearsal!</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/04/24/exceptions-widest-net-effect-and-new/">Exceptions, the Widest Net Effect and a New Exception Catching Syntax</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-04-24T00:00:00+02:00" pubdate data-updated="true">Apr 24<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+One annoying thing with Exceptions Catching in java is obviously the fact that a lot of APIs still throw checked Exceptions (not inheriting from java.lang.RuntimeException) to your face, therefore forcing you to deal systematically with things that sometimes cannot be recovered from in your application.<br /><br />This often used to imply the horrible &#8220;wide net&#8221; effect, when one uses too wide a net to catch exceptions (and even sometimes never dealt with them in order to get rid of them&#8230; but this never happens anymore :P ).<br /><br />One interesting and possibly easy to integrate evolution to the java language would be the possibility to catch multiple exceptions in one go as follows:<br /><br /><pre name="code" class="java">catch([MyException,AnotherException] e){<br />    throw new WrapperException("Something bad occured in my code, but I won't deal with it, though this gives you a context ;)",e);<br />}<br /></pre><br /><br />In this case, in current java constructs, this would end up with:<br /><br /><pre name="code" class="java">catch(MyException e){<br />    throw new WrapperException("Something bad occured in my code, but I won't deal with it, though this gives you a context ;)",e);<br />}catch(MyException e){<br />    throw new WrapperException("Something bad occured in my code, but I won't deal with it, though this gives you a context ;)",e);<br />}<br /></pre><br /><br />Or more probably because nobody likes repeated code:<br /><br /><pre name="code" class="java">catch(MyException e){<br />    dealWithException(e);<br />}catch(MyException e){<br />    dealWithException(e);<br />}<br /></pre><br /><br />Or even for lazy people:<br /><br /><pre name="code" class="java">catch(Exception e){<br />    throw new WrapperException("Something bad occured in my code, but I won't deal with it, though this gives you a context ;)",e);<br />}<br /></pre><br /><br />I vote for it&#8230; do you? ;)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+Hello Guru, what entice you to post an article. This article was extremely interesting, especially since I was searching for thoughts on this subject last Thursday. <br /><br />rH3uYcBX</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+I guess I am pretty lazy because when I have a dependency that forces me to deal with more than a couple of checked exceptions, I catch wide (java.lang.Exception), wrap and re-throw (or log and swallow).<BR/><BR/>This is unfortunate because there are situations where I want to catch wide (for example, to prevent a caller to receive any exception): it is impossible, by reading the code, to figure out if I am catching wide on purpose or because the called methods are throwing too many checked exceptions (unless I document it).<BR/><BR/>So: yeah, let&#8217;s add more syntactic sugar to the Jav!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/04/17/tdd-tet-and-ttd/">TDD, TET, and TTD&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-04-17T00:00:00+02:00" pubdate data-updated="true">Apr 17<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+As I am quite <a href="http://ddossot.blogspot.com/2007/04/seriously-infected.html">test infected</a> these days, I tend to make my tests run AFAP (As Fast As Possible&#8230;).<br /><br />This is quite an important topic when dealing with UNIT tests. In fact it&#8217;s as much crucial as encapsulation of the System Under Test. If your tests run fast, you&#8217;ll run them often. Hence the &#8220;make your tests run AFAP with a good TET (Test Execution Time) when using TDD (or not).<br /><br />This is not quite new and has been advocated by anonymous people like <a href="http://www.martinfowler.com/">Martin F</a>. (Except for the TET part which I own a copyright for&#8230;. not&#8230;)<br /><br />This is where enters TTD.<br /><br />I found myself reverting from an everyday use of MyEclipse with JBoss 4.0.x to a WTP 1.5.x/JBoss 4.0.x pair.<br />And believe me&#8230; it&#8217;s hell on earth! I was trying to explain to a colleague of mine how Struts 2 (interceptors&#8230; etc) and Spring work together, and believe me, it&#8217;s really hard to demonstrate anything efficiently when you never know the status of your deployments and when a modification of a files &#8220;sometimes&#8221; triggers an awfully slow ant task making a full redeployment of the web application!<br /><br />So it really seems that TTD (Time to deployment) affects a lot the productivity of a developer. Yet again nothing new, but it is very disappointing to see how a tool like WTP handles such a crucial task.<br /><br />My conclusion is that I&#8217;m working right now on a &#8220;Workspace to File system synchronizer&#8221; allowing to keep part(s) of your workspace in sync with another part of the file system (for example a folder in JBoss&#8217;s deploy folder, or in Tomcat&#8217;s webapps folder) hooked on the Platform&#8217;s events.<br /><br />This way, with a great TET and a marvellous TTD, I&#8217;ll be able to attain my goals ASAP.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>zepag</div>
+<div class='content'>
+Thanks Riyad,<BR/><BR/>I already (as you may know) am a frequent user of MyEclipse as Stated in this post.<BR/><BR/>I really think it&#8217;s great for this purpose and would find it very interesting to be able to only get the server deployment part of MyEclipse.<BR/><BR/>But there are some times when I have to deal with clients not wanting to pay the (very decent IMHO) fee for MyEclipse or find that MyEclipse goes against their inside recommandations by providing too many functionalities.<BR/><BR/>I&#8217;m not saying they are right though, and I really appreciate the fact that Eclipse can be improved with small dedicated features, and not only with very complete (sometimes too much) features suites.<BR/><BR/>I already have prototyped it and mean it to be very simple.<BR/><BR/>If you want I can state more clearly my appreciation of MyEclipse by editing this post ;)<BR/><BR/>Cheers</div>
+</div>
+<div class='comment'>
+<div class='author'>Riyad</div>
+<div class='content'>
+Just a quick tip that may make things easier for you.<BR/><BR/>When you use an &#8220;Exploded&#8221; deployment in MyEclipse, it is hooked into the build-loop, meaning any time you save a file, it is immediately copied out to the deployed location. No matter if it&#8217;s a Java file compiled to class then copied, XML file, properties files, JSP, etc.<BR/><BR/>In addition to that, while MyEclipse supports shortcuts for deploying to all the popular application servers out there, we also provide a &#8220;Custom Location&#8221; deployment, so you can place your deployment anywhere you want it will be kept in sync.<BR/><BR/>Also, MyEclipse offers the ability to mark Java projects as dependencies of Web and EAR projects, so it will handle easily packaging up and deploying those as well if necessary (some folks have heavy modularization needs and it&#8217;s important to them).<BR/><BR/>The last nice part of all of this is that it can all be managed from the server view. On succinct view in your perspective that lists all your app servers, their statuses (sp?) and their subsequent deployments and their individual statuses as well.<BR/><BR/>I wouldn&#8217;t normally go on and on like this, but I feel your pain and wanted to let you know there are alternatives out there before you embark on tackling the problem yourself.<BR/><BR/>Best of luck.<BR/><BR/>&#8211;NOTE: I work for Genuitec on the Support team.</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+SNATU?</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/03/22/mocking-stubbing-and-usurping_6455/">Mocking, Stubbing, and Usurping</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-03-22T00:00:00+01:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This post won&#8217;t be about <a href="http://en.wiktionary.org/wiki/mockery">mockery</a> in general, nor will it be about a famous <a href="http://www.toymania.com/334archives/love/stubing.htm">&#8220;Love boat&#8221; captain</a> (ok &#8230;not the same &#8220;spelling&#8221; ;) ).<br /><br />What I want to talk about is <span style="font-style: italic;">Mock Objects</span> and <span style="font-style: italic;">Stubs</span> used in strategies for Unit Testing.<br /><br />When you have to Unit test a piece of code, (if your purpose is <a href="http://xunitpatterns.com/Obscure%20Test.html">really to Unit test it</a>), you&#8217;ll often need to isolate it from the surrounding layers/components.<br /><br />In order to achieve this, two common tools are used: Mocks and Stubs (Though <a href="http://xunitpatterns.com/Mocks,%20Fakes,%20Stubs%20and%20Dummies.html">other variants</a> are available).<br /><br />Let&#8217;s begin with Stubs (in unit testing vocabulary). A <span style="font-weight: bold;">Test Stub</span> is a test-specific implementation of the contract of the object/component it is supposed to replace. It is ment to return the value this component is supposed to return. This Stub can also return a wrong value or throw an Exception in order to emulate error cases and test the robustness of our <span style="font-style: italic;">system under test</span>.<br /><br />A <span style="font-weight: bold;">Mock object</span> adds some <span style="font-style: italic;">behaviour testing</span> to the Stub. This means that in addition to the returning of values and throwing of exceptions, it also checks the input it gets from the system under test, the number of times each method has been called&#8230;etc<br /><br />So why does this post&#8217;s title mentions <span style="font-style: italic;">Usurping</span>?<br /><br />Now comes the part where I&#8217;ll present a solution I came up to for Java applications and baptized <span style="font-weight: bold; font-style: italic;">Usurper</span>.<br /><br />When you&#8217;re creating your own Stubs or using a Mock Object framework (<a href="http://www.easymock.org/">easymock</a>, <a href="http://www.jmock.org/">jmock</a>&#8230;etc) you need to feed them with the expected return values.<br /><br />It can sometimes be quite tedious to create a value object&#8217;s instance, and even more if your Mocked component is supposed to return a list of 100 users for example.<br /><br />This is where Usurper comes in handy.<br /><br />If you have a User <a href="http://wiki.java.net/bin/view/Javapedia/ValueObject">Value Object</a> like this one:<br /><br /><pre name="code" class="java">public class User{<br />private String firstName;<br /><br />private String lastName;<br /><br />private Integer age;<br /><br />private boolean administrator;<br /><br />// getters and setters ...toString() method...<br />}<br /></pre><br />Here&#8217;s how you can create a list of 100 User objects using Usurper.<br /><br /><pre name="code" class="java">// CREATE THE USURPER GENERATOR<br />UsurperGenerator&lt;User&gt; userGenerator<br />= new UsurperGenerator&lt;User&gt;(User.class);<br /><br />// GENERATE A LIST OF USER VALUE OBJECTS<br />List&lt;User&gt; userList =<br />userGenerator.generateUsurperList(100);</pre>And you&#8217;re done!<br /><br />At least for now if you don&#8217;t need to test the contents of the object.<br />In fact, the content of the generated usurper object is something like this:<br /><br /><pre>org.org.usurper.User@1632c2d[<br />lastName=dCOuSJOZQZ<br />administrator=false<br />age=814857147<br />firstName=Zq8R9bH7LJ<br />]<br /></pre>This is because the default field handlers allocate a random value to the fields in your object.<br />So this is the part where you&#8217;ll say to me this is no use at all.<br />Well I&#8217;ll answer that from now on this is up to you!!! ;)<br />You can easily implement:<br /><ul><li><a href="http://www.org-libs.org/org-lib-usurper/apidocs/org/org/usurper/handlers/basic/AbstractPropertyTypeHandler.html">handlers for types of properties</a></li><li><a href="http://www.org-libs.org/org-lib-usurper/apidocs/org/org/usurper/handlers/basic/AbstractSpecificPropertyHandler.html">handlers for specific properties</a> (for example a specific handler for the property age of the User class)</li></ul>This way you can customize the way some fields are dealt with.<br />For example, the <span style="font-style: italic;">BigInteger</span> type is not handled by default. You can easily create your own implementation in a global text fixture of to a specific test&#8217;s local fixture:<br /><br /><pre name="code" class="java">// CREATE THE USURPER GENERATOR<br />UsurperGenerator&lt;User&gt; userGenerator =<br />new UsurperGenerator&lt;User&gt;(User.class);</span><br /><br />// REGISTER CUSTOM PROPERTY TYPE HANDLER</span><br />Set&lt;Class&gt; handledTypes = new HashSet&lt;Class&gt;();<br />handledTypes.add(BigInteger.class);<br />userGenerator.registerPropertyTypeHandler(<br />new AbstractPropertyTypeHandler(handledTypes) {<br />public Object handle(Object targetObject, Class attributeClass,<br />String attributeName, Map parentHandlers) {<br />return new BigInteger(24, new Random());<br />}<br />});<br /><br />// GENERATE A LIST OF USER VALUE OBJECTS<br />List&lt;User&gt; userList =<br />userGenerator.generateUsurperList(100);<br /></pre><br /><br />This is just one basic (and probably meaningless) example of what you can easily do with <span style="font-style: italic; font-weight: bold;">Usurper</span>.<br /><br />Note that <span style="font-style: italic; font-weight: bold;">Usurper</span> supports by default:<br /><ul><li>Generation of <span style="font-style: italic;">array</span> properties: if your property is a BigInteger[], all you have to do is define a handler for the BigInteger type.</li><li>Generation of <span style="font-style: italic;">Collection</span> properties: if your property is a List&lt;BigInteger&gt;, Set&lt;BigInteger&gt; or Map&lt;BigInteger,BigInteger&gt;, all you have to do is also to define a handler for the BigInteger type.</li><li>Generation of <span style="font-style: italic;">Enum</span> properties: a default handler gives random values for Enum types.<br /></li><li>Generation of <span style="font-style: italic;">Value Object</span> properties: if your property is another value object, you can easily register it through the use of the ValueObjectPropertyTypeHandler.</li></ul>If you want to learn more, and hopefully give it a try and adopt it (it is LGPL licensed), follow this link:<br /><a href="http://www.org-libs.org/org-lib-usurper">http://www.org-libs.org/org-lib-usurper</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2007/01/05/paroli-aux-agi/">Paroli Aux Agi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-01-05T00:00:00+01:00" pubdate data-updated="true">Jan 5<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+How much can a <a href="http://esperanto.net/">thoughtfully elaborated language </a>evolve? How much without implying a sufficient amount of thinking about the real purpose of such an evolution?<br /><br />This sounds philosophical but is not the start of a discussion about <a href="http://en.wikipedia.org/wiki/Philology">philology</a> (litteraly  &#8220;the love of words&#8221; in ancient greek and <a href="http://www.merp.com/essays/MichaelMartinez/copy_of_hobbitryinarmchairs">J.R.R Tolkien&#8217;s speciality</a>), as what I&#8217;m going to talk about is the current evolution of the java language and the java platform as a whole.<br /><br />There seems to be so much debate on language subjects such as <a href="http://gafter.blogspot.com/2006/12/closures-talk-and-spec-update.html">closures</a> and <a href="http://gafter.blogspot.com/2004/09/puzzling-through-erasure-answer.html">erasure/reification</a>&#8230; All these debates are really interesting and I think these are indeed good moves.<br /><br />But this seems like pulling a beautiful napkin on a dirty table : JEE&#8230;Well ok this is a bit exagerated, but I mean that the focus on ease of development for this release of the platform completely removed the focus from the ease of management of applications at runtime.<br /><br />All this focus on ease of development and productivity improvements is a really good move anyway. But I think that if the brilliant minds discussing on these difficult language/JVM subject could allocate a bit of their time to JEE&#8217;s architecture, we would finally have something a little bit more production-ready than now.<br /><br />Do I need to remind that nowadays each and every peace of software is upgradeable and manages its version in one way or another (Firefox, Eclipse, Linux with packages, all MacOS software, even Microsoft software&#8230;etc).<br /><br />Yet JEE 5.0 applications still don&#8217;t/won&#8217;t have any conventions on versions of deployed artifacts&#8230;<br />Is this because this kind of version management is complete fantasy?&#8230;no.<br /><br />In fact, <a href="http://www.osgi.org/">OSGI</a> implementations already provide this scheme for java applications. A fair amount of java developers have already experienced this through the plugin and update site mechanism of Eclipse through the Equinox OSGI implementation.<br />The very famous Spring framework also provides an alpha <a href="http://www.springframework.org/osgi">OSGI support</a> for Spring-enabled applications.<br />A <a href="http://www.osgi.org/blog/2006/02/jsr-291-dynamic-component-support-for.html">JSR</a> has even been started proposing the support by the JDK and/or J2EE of OSGI.<br /><br />So why in the hell WHYYYY did some &#8220;clever&#8221; folks think they could flush this away (sewers once again) and try to push in the JDK a somehow neither tested nor sufficient <a href="http://www.osgi.org/blog/2006/10/jsr-277-review.html">JSR</a> for a Java Module System (JMS acronym is already used BTW)&#8230;instead of contributing improvements to the already tested and proven useful OSGI initiative.<br />If you look at how this <a href="http://jcp.org/en/jsr/detail?id=277">JSR</a> (see 2.6) sweeps away OSGI in a paragraph as simplistic, you can see how much the &#8220;not invented here&#8221; motto can get in action&#8230;<br /><br />It&#8217;s a bit sad to see how the focus on the language and/or a narrow view of the use of java is done at the expense of the view on architecture and/or live management of applications in IT systems.<br /><br />The same way <a href="http://en.wikipedia.org/wiki/Esperanto">Esperanto</a> was a good idea and a cleverly elaborated language, is java becoming a very clever language with no soul?<br /><br />This seems a bit desperate, and as much as I value the language improvements, I do value a lot more OSGI, Eclipse RCP and Spring framework, not because of a hype surge, but for their fair usefulness and clean design.<br /><br />Wouldn&#8217;t it be a lot cleaner to have a common jar pool/repository in a j2ee server (clearly specified in the repository) with a simple version handling (similar for example to the structure of a Maven or Ivy repository), and to add, say, a &#8220;dependencies.xml&#8221; file to the different deployable. This, along with a clear classloading scheme in the specification would allow people to deal with versions management.<br /><br />(BTW the JSR 277 people didn&#8217;t even think about J2EE when elaborating it&#8230;what a clever move&#8230;&#8230;..not!)<br /><br />Wouldn&#8217;t it be clean to have a &#8220;myapp-1.0.0.war&#8221; archive in a JEE server, and just have the ability to replace it at runtime by dropping a &#8220;myapp-1.0.1.war&#8221; and let the server handle the replacement and the dynamic linkage to the appropriate libraries?<br /><br />This definitely wouldn&#8217;t be easy to implement, but woudn&#8217;t it be a better place for the focus of brilliant minds than a meaningless struggle with Rubyists?<br /><br />I for myself prefer a lot design to language improvements.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+You are so right. But truly people in Google (like Neal Gafter) are not facing the same kind of problems we are. While we are facing plumbers&#8217; issues, they are dealing with couturiers&#8217;.<br /><br />Anyway, it seems that IONA has introduced <a href="http://www.iona.com/support/docs/e2a/asp/5.0/j2ee/DevelopGuide/html/setup-iPAS4.html">some support for JAR dependencies</a> in their application server configuration. It is pretty basic, no versioning, but a start.<br /><br />A perfect system would work with version patterns a la Maven2.<br /><br />Hey about writing an alternate class loader for JBoss that supports this concept? What do you do between midnight and 2am?</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/12/17/mobilis-in-mobili/">Mobilis in Mobili</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-12-17T00:00:00+01:00" pubdate data-updated="true">Dec 17<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+As I tend to notice, working in the IT field can be really rewarding and also humongously frustrating.<br /><br />While being part of an intense brainstorming with co-workers whose work you value very much (and hopefully who value yours&#8230;) is indeed really rewarding, it is a job where congratulations are quite rare.<br />In fact, each and every member of your family and/or friends (those ones not part of the geeky crowd of course) think your daily work consists in installing windows XP on computers and debugging the latest Canon printer.<br /><br />The main issue with this is not the incommodities of the week-ends spent <a href="http://www.thinkgeek.com/tshirts/frustrations/388b/">fixing your family&#8217;s computers</a> (well not only that&#8230;), but the real problem is that the role of IT workers is not at all clear for the society we all live in.<br /><br />For a little comparison, while mostly none of us has ever put a foot in a sewer system, we  have quite  a good  idea of what it looks like  (<a href="http://people.howstuffworks.com/sewer3.htm">maybe a bit false</a>, but  yet a good grasp) and  we  do recognize the  utility of having  people working on it&#8230; and moreover we won&#8217;t ask these people if we know them to come home for a good dinner and a toilet flusher replacement.<br /><br />Difficulty is that, even inside the IT field, it is quite hard to keep on the track. You can never rest and think you&#8217;ve learnt everything for the coming ten years (but that&#8217;s the beauty of it).<br /><br />As the Nautilus&#8217; motto &#8220;Mobilis in mobili&#8221; expressed it, IT field is constantly moving in a moving society&#8230;<br />The problem being IT should be part of the society and not a wonderful submarine lost in the society&#8217;s deep sea&#8230;<br /><br />So we have two separate moving things:<br /><ul><li>A ocean of People&#8217;s view on IT, not even close to the point. Yet this view is shifting; but at a slow pace.</li><li>A flow of the IT field, moving at a great speed, with such a thick hull that nobody can imagine what&#8217;s inside.<br /></li></ul><br />What do you think &#8220;normal folks&#8221; think about when they see commercials about blade servers on TV? What do you think they&#8217;ll understand when they&#8217;ll be served Web 3.0 and SOA 3.0 next to Windows Vista Extra and diapers?<br /><br />IT vocabulary has become so gibberish and acronyms so much the focus of IT business that nobody, except if properly documented, can have the equivalent of the grasp we have of the people working in sewers&#8230;<br /><br />So I urge each and every IT worker in the world to go out of its <a href="http://cyberinkdesign.com/geek-gifts/thecubes.jpg">dark and badly ventilated office</a> and explain to the world that his job is as valuable as any other in the world, and using as many metaphors as needed, to explain what he&#8217;s really doing!<br /><br />This way we&#8217;ll be able to synchronize a bit these flows&#8230;and integrate IT in our society.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Wow, long time no blog, but it was worth waiting: this is a great post!<br /><br />I can only agree with your points here and the allusion to Nemo&#8217;s motto is way too true.<br /><br />The yucky sewer pictures <a href="http://ddossot.blogspot.com/2007/01/sewer-20.html">really inspired me</a>. I can not say I am really proud of me 8-/<br /><br />D.<br /><br />P.S. Thanks for reminding me to buy one of these &#8220;No, I will not fix your computer&#8221; cool T-Shirt ;-)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/08/31/get-your-hash-covered/">Get Your Hash Covered!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-08-31T00:00:00+02:00" pubdate data-updated="true">Aug 31<span>st</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Today, after a long and truly joyful refactoring session, I stumbled on this <a href="http://www.informit.com/articles/article.asp?p=438990&rl=1">article</a> about hashcode() method&#8217;s coverage.<br />Which reminded me of David dossot&#8217;s <a href="http://ddossot.blogspot.com/2006/08/coverage-generation-or-generations-of.html">blog entry</a> dealing with the problem of coverage.<br /><br />It made me wonder a lot about the big difference between rich client software and J2EE middle tier software : test coverage.<br /><br />If hashcode() methods&#8217; coverage is so hard to obtain or at least can be so boring to do when you have tenth of value objects in your code, at least it can be done!<br /><br />I for myself feel completely lost and have no clue on how to unit test the code of an eclipse plugin or the code of an Eclipse RCP app&#8230;<br /><br />As a good (well trying to&#8230;) J2EE developer and POJO fan, I tend to encapsulate all my specific logic in specific as-POJO-as-can-be classes.<br /><br />Therefore making these classes testable.<br /><br />But what about the real tricky-buggy part of these apps: GUI!<br /><br />I for myself am missing a lot of tricks and patterns for testing this.<br />And by testing, I mean unit-testing. Because GUI also diserves it. And not only integration tests.<br /><br />In the end when you think about the code of an Eclipse plugin&#8217;s UI and the strategies you&#8217;d have to use to unit-test it&#8230; hashCode() seems like bliss ;)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+I have the feeling that <A HREF="http://jcp.org/en/jsr/detail?id=305" REL="nofollow">JSR 305</A> could help here: if we use annotations like @NonNull, the IDE could then more intelligently generate less defensive code. Some checks for null could go away, leading to less conditional paths.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/08/24/my-kingdom-for-release/">My Kingdom for a Release!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-08-24T00:00:00+02:00" pubdate data-updated="true">Aug 24<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+After yet another day of pom.xml and settings.xml and other properties tweaking, I must admit I&#8217;m quite satisfied with my <a href="http://maven.apache.org">Maven 2</a> builds.<br /><br />Still it is not completely satisfying&#8230;<br /><br />The main problem I can think of if that almost 2 thirds of the plugins available on the apache and codehaus repositories are not even officially released.<br /><br />And I&#8217;m not even talking about the exotic plugins generating weird things or weaving any exotic kind of AOP ;)&#8230;<br /><br />Some of the core features can completely be ruined from an automatic update to another (my last memory of it is the site plugin now ruined by a beta functionality from the skin plugin&#8230;).<br /><br />Problem is that even released plugins are often tied to beta ones.<br /><br />So I beg the maven plugin developpers to gather and to try and elaborate a Callisto-like release!<br /><br />This will benefit to both users and plugin developers.<br />Even if some plugins are buggier than others, at least it will not feel like walking on a pile of rolling stones all the time ;)</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Gee, you got me! I thought this post was about <A HREF="http://springframework.org/" REL="nofollow">Spring</A>!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2006/08/09/driving-change/">Driving the Change</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-08-09T00:00:00+02:00" pubdate data-updated="true">Aug 9<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+I&#8217;m having a hard time finding people who are never in a destructive state-of-mind in the IT field.<br />Each and every people has a good reason at a given moment to resist to change.<br /><br />It seems difficult for everybody to realize that embracing changes before they occur is the key to longevity and sanity in the IT field.<br /><br />The problem with IT systems is the same as with employment. Stability and Longevity are now enforced by constantly moving ahead. Trouble comes when people are in a Cobol-ish/Mainframe-ish state of mind, thinking that every single piece of an IT System is destined to last whatever happens.<br /><br />In the end everyone finishes up blaming the audacious for the sake of costs and responsability.<br /><br />In fact it is difficult to handle change when you&#8217;re not driving it. I guess that&#8217;s why I tend to go to the change orientation part, so that I can precede change instead of being its victim.<br /><br />So at the end of the day is it really a matter of resistance to change or more a matter of resistance to change driven by others?</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+It is true that change is resisted at all levels. For management, change often translates to risk ; for developers, it is often assimilated as a criticism of their work.<BR/><BR/>Accepting change means to work a lot on ourselves and to further trust the people we work with. So it is clearly not a single-level one-way issue!</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+It is true that change is resisted at all levels. For management, change often translates to risk ; for developers, it is often assimilated as a criticism of their work.<BR/><BR/>Accepting change means to work a lot on ourselves and to further trust the people we work with. So it is clearly not a single-level one-way issue!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/8/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/6/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I&#8217;ll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zepag';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

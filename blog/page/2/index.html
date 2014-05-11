@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="RRails native deploymentModular because of the requirements of Java EE 6 ProfilesModularity Based on OSGi (Apache Felix by default) 190 bundles (too &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/27/jazoon-day-1-glassfish-v3/">Jazoon Day 1: Glassfish V3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-27T00:00:00+02:00" pubdate data-updated="true">Jun 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+RRails native deployment<br />Modular because of the requirements of Java EE 6 Profiles<br /><br /><h4>Modularity</h4><br /> Based on OSGi (Apache Felix by default)<br /> 190 bundles (too many probably, but necessary at first, will decrease through time&#8230;or so they say ;))<br /> Modules have responsabilities (provide services) and a lifecycle<br /> Maven was used for the build<br /><br /><h4>Developer features</h4><br /> Integration with IDEs<br /> Fast startup, restart in debug<br /> Exploded directory deployment<br /> therefore&#8230; Fast deploy on save<br /> Preserve session across redeployment<br /> Application runner: java -jar glassfish.jar myWebApplication<br /> > Maven/ANT integration<br /> > Award winning UI console<br /><br />Java EE 6 EJB 3.1 in web apps is really a very nice feature. It also seems that @Resource can now inject elements that come from other sources than JNDI! NICE!!<br /><br /><h4>Runtime</h4><br /> Kernel<br />  startup/shutdown<br />  deployment<br />  configure reading<br /> Services<br />  Java EE 6: Security, Naming Manager<br />  Products; Admin consoles<br /> Containers<br />  Java EE 6: Web Container, EJB Container&#8230;<br />  Other possible custom containers (RRails)<br /><br /><h4>Application container</h4><br /> Deployment<br /> Configuration<br /> Commands (CLI, REST operation)<br /><br /><h4>Service Based Architecture</h4><br /> HK2 Services: Abstraction to OSGi services<br /> Per thread / Per scope scopes<br /> Integrated lightweight dependency injection<br /> Based on annotations (Container, Service, Inject&#8230;)<br /><br />OSGi services can be injected with @Resource Java EE annotation.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/27/jazoon-day-1-concurrency-and/">Jazoon Day 1: Concurrency and Performance Reloaded</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-27T00:00:00+02:00" pubdate data-updated="true">Jun 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Already lots of issues in single-threaded applications.<br />Moore&#8217;s law is continued by multiple cores.<br />Concurrent programming is not possible yet, we can only cope with it.<br /><br />Sadly (or not) concurrency is the main programming focus nowadays.<br /><br />We have to deal with concurrency explicitely while before you could just wait for the platforms to improve and gain performances ;)<br /><br />Problems: <br />- Hardware components are not shareable.<br />- Access to shared data has to be serialized.<br />- Databases offer access to shared data.<br />- Serialization limits scalability.<br /><br />He then talks about <a href="http://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl&#8217;s law</a> (parallel computing is limited by the time needed for the sequential part of the computing)<br />and Little&#8217;s law (Throughput is inversely proportional to service time).<br /><br />In Java: locking is pessimistic. Huge problem.<br /><br />In fact 99% of locks are almost never really contended, and a large part of those will never be contended at all by design.<br /><br />In Java 1.5, we have <b>Java Locks and system level locks</b> (hotspot profiles the application and determines if a lock is contended or not, and choose one or the other)<br /><br /><b>Lock coarsening</b> uses one lock only for nearby equivalently locked operations.<br /><br /><b>Compare And Swap (CAS)</b> used in Atomic classes. Fails only if another threads updates the data during your access. Needs less locking.<br /><br /><b>Biased Locking:</b><br />If a thread continuously acquires a lock, CAS is not used, and the thread keeps the lock until another one is reclaiming it (unbiasing)<br /><br />How to code this correctly:<br /><br />java.util.concurrent of course (Atomic*)<br />Lock striping (ConcurrentHashMap)<br />Teaching threads to steal (after all Garbage collecting is doing it).<br /><br />In 1.7: Fork-Join<br /><br />Fully concurrent lock-free algorithms:<br /> No blocking, threads are never waiting for anything.<br /> Wait free is different of course but should be achieve<br /> Parallel reads, serialized writes<br /><br />NonBlockingHashMap scales very well up to 1000 CPUs even for R/W, when ConcurrentHashMap doesn&#8217;t.<br /><br /><br />Fully concurrent lock-less FIFO?<br /> What does FIFO mean in multicore?<br /> => Doug Lea&#8217;s wait-free queue (getAndSet(V))<br /><br />Things that don&#8217;t make sense<br /> Iterator<br /> Size<br /> Contains<br /><br />These are not relevant in highly concurrent environment.<br />APIs must therefore be re-thought through.<br /><br />Very nice yet intricate talk. Too bad there&#8217;s not more time for <a href="http://www.kodewerk.com/">Dirk Pepperdine</a> to go more into details!</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-transactions-with/">OSGi DevCon Europe: Transactions With OSGi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Presentation is very good. Clement Escoffier is very dynamic, and has good vocabulary, and a very pronounced frenchy accent and grammar ;) (who am I to say?)<br />Very good explanation of the basics of transaction. Should be learned in schools as is ;)<br /><br />Indeed transactions are hard to handle in a system where the transaction manager bundle or the transaction participants can leave during a transaction!<br /><br />iPOJO Transaction Handler does that (amongst others). I&#8217;m still not clear if this is part of 4.2 release of OSGi.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-rfid-and-osgi/">OSGi DevCon Europe: RFID and OSGi Devices</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Collecting real data and analyse it in the I.T.System.<br /><br />Learned about MOSGI (JMX for OSGi) RFC 139<br /><br />Learned about ALE reports which are events published by RFID Readers.<br /><br />Starting to be a bit tired&#8230; too many presentations in one day :p</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-remote-services-yet/">OSGi DevCon Europe: Remote Services, Yet Another One ;)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h3>Remote Services demo</h3>service.exported.* properties for registered services<br />NICE!!! OSGi service exposed with CXF<br />NICE&#8217; !!! Discovery mechanism is in the works for the client side<br /><br />Presentation of an Asynchronous remoting example/experiment.<br />This is not really available right now&#8230; and seems to be an example implementation.<br />Yet interesting ;) implemented by an OSGi Event dispatcher that allows to decouple from the implementation.<br />Drawbacks: No guaranteed delivery, No error handling with existing API. At least not yet, but this is experimental.<br /><br />Demo of ActiveMQWrapper behind the EDS (EventAdmin is the point of contact)<br /><br />http://cxf.apache.org/distributed-osgi.html (RI of OSGi 4.2 Remote Services)<br />http://lightsabre.fusesource.org (OSGi Asynchronous Messaging, experimental)</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-remote-services/">OSGi DevCon Europe: Remote Services</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h4>Module management in java</h4>Mystical class path<br />In the end, classpath is flat<br />With OSGi: explicit dependencies, yet declarative<br />Allows events, dynamic handling, introspection<br />Services in OSGi allow to reduce coupling, but when package dependencies are explicit it limits the modularity.<br /><br /><h4>Service Registry</h4>Registering services by name, therefore allowing to reference a service without dependency on the implementation<br /><br /><h4>Distributed OSGi</h4>Remote can be separate machine, or separate JVM<br />Why? Isolation, Redundancy, Distribution is needed by your architecture<br /><br /><h4>OSGi 4.2 Remote Services</h4>Service Hooks (can intercept service requests)<br />Proxies<br />Intents (denotes an abstract distribution capability, requires mutual agreement, derives from SCA)<br /><br />Very Nice: R-OSGi Deployment definition tool for Eclipse!<br /><br />Remote Services Mostly based on the fact that services are stateless.<br /><br /><h4>Work in progress: replication,Research prototype: Cirrostratus</h4><br />Interesting as this allows completely virtual deployment of bundles.<br /><br />Though it is unclear how much of what is presented is actually really available. Presentation is tough to follow, yet very interesting.<br /><br />To summarize, seems that for stateless services, OSGi 4.2 would be enough, Cirrostratus prototype deals with state replication, service migration and hardening policies.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-posh/">OSGi DevCon Europe: POSH</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+POSH: Paremus OSGi Shell <br /><br />RFC 0132<br /><br />The man is yelling! ;) (Microphone too close to his mouth)<br /><br />Yet the topic is interesting, it&#8217;s about standardizing OSGi commands between frameworks.<br />For example &#8220;ss&#8221; in equinox is &#8220;ps&#8221; in Felix&#8230;<br />Not open source&#8230; even if pieces of it are part of Newton :p</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-persistence/">OSGi DevCon Europe: Persistence</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h3>OSGi Persistence</h3><br /><h4>Java Persistence standards</h4>JPA<br />OXM: JAXB 2.X<br /><b>EDIT (see comments)</b><br />OXM: SDO 2.1<b>.1</b> JSR 235<br /><br /><h4>Eclipse Link</h4>JPA, MOXy (Object-XML), EIS, SDO, DBWS (XML-relational&#8230;Oracle :p)<br />Currently JPA 1.0 compatible, and working on 2.0<br /><br /><h4>MOXy</h4>Complete Object-XML mapping<br />Provides external mapping file! NICE!!! Never understood why they didn&#8217;t give that option in JAXB&#8230;<br /><br /><h4>EclipseLink available as OSGi bundles</h4>Supports usage of standard APIs (Persistence.createEntity, JAXBContext.newInstance(), commonj.sdo.HelperProvider)<br />Supports modular packaging<br />Decouples application from provider (Through JPA <provider> tag)<br /><br /><h4>Challenges for OSGi and JPA</h4>Bootstrap in JPA scans the classpath<br />Provider needs access to domain model classes<br />Needs access to JDBC driver (addressed RFC 122)<br /><br /><h4>Challenges for OSGi and JAXB</h4>Spec SPI does not support registration of providers<br />Provider needs access to domain model classes<br />Though supports passing domain model classloader<br /><br /><h4>Challenges for OSGi and SDO</h4>Spec hardwires everything so it doesn&#8217;t support custom providers<br /><br />JPA 2.0 will include dynamic resolution.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kg</div>
+<div class='content'>
+A subtle but not insignificant correction.  JSR 235 provides the SDO 2.1.1 specification.  The 2.1 SDO spec was created by the OSOA group.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-pax/">OSGi DevCon Europe: Pax</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Tools and service implementations (framework independent)<br />Widely used (Apache Felix, Mule&#8230; etc)<br /><br /><h4>PaxConstruct</h4>A bit like maven archetypes (on steroids) for OSGi.<br />pax-create-project -g foo -a bar<br />pax-wrap-jar<br />&#8230;etc<br /><br /><h4>PaxRunner</h4>Standard launcher for major frameworks (Apache Felix, Knoplerfish, Equinox, Concierge&#8230;)<br />Does the provisionning of required artifacts<br />Generates Configuration files<br />Generates packages for a target platform<br /><br /><h4>PaxExam</h4>Allows testing of OSGi services. NICE!<br />Compatible with JUnit 4 and Maven for setup.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-p2/">OSGi DevCon Europe: P2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+p2, modular provisioning for OSGi<br /><br />One consistent model from installation to servicing.<br /><br /><h4>Concepts:</h4><br /> Everything is an Installable Unit (IU)<br /> IU can have:<br />  Actions (steps to perform to fully deploy)<br />  Artifact reference (allows to reference dependencies without pointing directly to its location)<br />  Capabilities and Requirements<br /> Artifacts are:<br />  Bytes/content to be installed (JARs, binary executable, RPM, MSI&#8230; etc)<br /><br />God these presentations are too short.. The guy is talking too fast.<br />In the end, I already thought p2 was a bit of a mess, and as much as I want to like it, I&#8217;m still not clearly convinced by it.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I&#8217;ll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zepag';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

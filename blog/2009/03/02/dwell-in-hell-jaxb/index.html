@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dwell in Hell JaxB! - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="Feel free to join the JaxB bashing&#8230; ;)As pointed by David Josh is not really happy about JaxB&#8217;s behaviour.It is even worse than Josh &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2009/03/02/dwell-in-hell-jaxb">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Dwell in Hell JaxB!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-02T00:00:00+01:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+Feel free to join the JaxB bashing&#8230; ;)<br /><br />As pointed by <a href="http://twitter.com/ddossot/status/1269729660">David</a> Josh is not really happy about JaxB&#8217;s behaviour.<br /><br />It is even worse than Josh thinks or experienced, as the specification is based on the fact that your objects are plain Java Beans (with all the quirks of this damn spec&#8230;).<br /><br />I had an equivalent unpleasant surprise while giving a training on JaxWS (which specifies the use of JaxB recently) last december.<br /><br />The week before this training, I had worked on a domain-driven persistence design, with immutable objects, write-only repositories and read-only fast-lanes (will soon blog about it hopefully if it&#8217;s interesting enough)&#8230;<br />With this purist state of mind, I started creating in front of all the &#8220;students&#8221; a beautiful domain with Immutables (BTW I should have stuck with the default examples, though I wanted to demonstrate how easy it is to use JaxWS starting from scratch).<br />Yet be warned, an Immutable cannot be a JavaBean, as these beasts can only be created with the default no-args Constructor and their state modified by their getters/setters&#8230;.<br /><br />Isn&#8217;t that the stupidest thing in the world????<br /><br />What would be a best candidate for disconnected transfer (HTTP usually with WS) than an immutable object?<br /><br />I know for a fact that an External view of the service should separate my domain from the view I give from it to the outside, yet even if <a href="http://dozer.sourceforge.net/">good APIs</a> exist for the copy of the states of beans, it&#8217;s still a shame to be forced into java beans which are only useful for damn Swing developments (BTW I think I could wish hell to swing for being part of the JDK and being the motivation for the addition of a default implementation of database and web services inside the JDK/JRE&#8230;. what a nonsense).<br /><br />So in the end I completely agree with Josh and am still looking for a better ways to use immutables in J(2)EE applications. It seems that the whole platform was build without these beasts in mind.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>SM.ELAATIFI</div>
+<div class='content'>
+We work on a support for immutable objects (and a simple jaxb support) for our Java mapper framework.<br /><br />Any suggestions will be very helpful. <br /><br />Thanks</div>
+</div>
+<div class='comment'>
+<div class='author'>ssaboum</div>
+<div class='content'>
+you have more, and JAXb is a pain, what do you suggest to deal with Immutable objects ?<br /><br />I really don&#39;t want to start creating Adapters for all of them&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>zepag</div>
+<div class='content'>
+Glad to know I have (at least) 2 readers ;);)</div>
+</div>
+<div class='comment'>
+<div class='author'>Josh Devins</div>
+<div class='content'>
+Glad to hear I&#8217;m not alone ;)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-02T00:00:00+01:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2009/03/02/dwell-in-hell-jaxb/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2009/03/02/dwell-in-hell-jaxb/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/02/16/users-are-crappy-designers/" title="Previous Post: Users are crappy designers">&laquo; Users are crappy designers</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/05/27/my-wishes-for-better-maven-2/" title="Next Post: My wishes for a better Maven 2">My wishes for a better Maven 2 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

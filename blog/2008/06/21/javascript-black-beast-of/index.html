@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Javascript: The Black Beast of Aaaaarrrrgggghhhh (Part 1) - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="I&#8217;ve really wanted (and still want) to have a grasp on how Javascript should be coded the Javascript way.As a regular Java (and occasionally &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2008/06/21/javascript-black-beast-of">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Javascript: The Black Beast of Aaaaarrrrgggghhhh (Part 1)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-21T00:00:00+02:00" pubdate data-updated="true">Jun 21<span>st</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+I&#8217;ve really wanted (and still want) to have a grasp on how Javascript should be coded <span style="font-weight: bold;">the Javascript way</span>.<br /><br />As a regular <span style="font-weight: bold;">Java</span> (and occasionally other languages) developer, I&#8217;ve sometimes used javascript with this constant sense of weirdness on the edges, and without being able to grasp the concepts in it.<br />In fact, the browsers&#8217; DOM and the history of the Javascript implementations in browsers contributed to this fuzziness (as we&#8217;ll see later).<br /><br /><span style="font-size:140%;">Basic concepts:</span><br /><br />Javascript has very little to do with Java. In fact its name only contains java for marketting purposes of that time. Javascript is a language from the C family like java and uses a lot of the same operators and syntax.<br /><br />This can be confusing, because Java and Javascript are indeed <span style="font-weight: bold;">very</span> different.<br /><br />While <span style="font-style:italic;">Java</span> is based on classes and inheritance <span style="font-style:italic;">between classes</span>, <span style="font-weight:bold;">Javascript</span> is based on objects and inheritance between <span style="font-weight:bold;">objects</span>.<br />Javascript is also a prototype-based language (which is I think the hardest part to grasp&#8230;).<br /><br />This may sound a bit abstract, but one cannot hope coding proper javascript without at least understanding these concepts.<br /><br /><span style="font-size:140%;">A little pause</span><br /><br />Before we start explaining the previous concepts, you must be aware that Javascript&#8217;s history has been very clumsy to say the least.<br />Some good decisions were taken, and some very bad ones.<br /><br />Most of the bad decisions were made during the browsers&#8217; war (Netscape vs Internet Explorer) with a purpose to attract developers from Java/C++ or VBScript for example.<br /><br />These bad decisions leave strange reserved words in the language (like &#8216;abstract&#8217; or &#8216;interface&#8217; which are never used,) that should never be used or even cannot be used, and constructs that come from other worlds.<br /><br />If you add to that the incompatibilities of APIs and models between browsers, it&#8217;s easy to understand why Javascript is still often considered as a toy language.<br /><br />So don&#8217;t be surprised by the number of things that should not be used or touched in Javascript.<br /><br /><span style="font-size:140%;">Javascript is not a toy language, nor a poor OO language.</span><br /><br />In fact, in a way, Javascript is more OO than Java is ;).<br />In Javascript (almost) everything is object (think instances, forget about classes!).<br /><br />Here&#8217;s a list of the things that are NOT objects in Javascript:<br /><ul><br /><li>numbers</li><br /><li>strings</li><br /><li>booleans</li><br /><li>null</li><br /><li>undefined</li><br /></ul><br /><br /><span style="font-weight: bold;">Everything else is objects.</span><br />Yes, everything.<br />Keep that in mind, and remember (again) that I said Object (instance), not Class.<br /><br />One really clever thing that was done in javascript is the <span style="font-weight: bold;">merging of Objects and Hashtable</span>.<br />A new Object is an empty container of key/value pairs.<br /><br />For example, one can create an object using:<br /><br /><pre name="code" class="javascript"><br />var myObject={};<br /></pre><br /><br />As Javascript is loosely typed, there is no class definition. You just created an Object with nothing in it.<br /><br /><pre name="code" class="javascript"><br />var user={<br />    firstname="Pierre-Antoine"<br />    ,'lastname'='Grégoire'<br />    ,age=31<br />};<br /></pre><br /><br />As you can see, it&#8217;s quite easy to create an object using key/values.<br />As you also probably noticed, keys can be String, therefore allowing access to members in two ways:<br /><ul><br /><li>using the dot notation: <span style="font-style: italic;">user.firstName</span> </li><br /><li>using the subscript notation: <span style="font-style: italic;">user[&#8220;firstname&#8221;]</span></li><br /></ul><br /><br />This is it for this first short part. Next blog entry will introduce the functional nature of Javascript.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Excellent idea: debunking JavaScript&#8217;s myths and prejudices is really important, as this language now runs in the JVM directly.</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-21T00:00:00+02:00" pubdate data-updated="true">Jun 21<span>st</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>Javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2008/06/21/javascript-black-beast-of/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2008/06/21/javascript-black-beast-of/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/06/12/springone08-spring-integration/" title="Previous Post: SpringOne08: Spring Integration">&laquo; SpringOne08: Spring Integration</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/06/21/springone08-mda-and-spring/" title="Next Post: SpringOne08: MDA and Spring">SpringOne08: MDA and Spring &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

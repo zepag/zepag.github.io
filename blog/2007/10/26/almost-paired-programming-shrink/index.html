@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Almost-paired Programming, the Shrink Principle and Beer - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="This strange thought occured to me yesterday:It is quite disturbing to see how coding can be close to a psychiatric sickness.I was gently coding &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2007/10/26/almost-paired-programming-shrink">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Almost-paired Programming, the Shrink Principle and Beer</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-26T00:00:00+02:00" pubdate data-updated="true">Oct 26<span>th</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+This strange thought occured to me yesterday:<br />It is quite disturbing to see how coding can be close to a psychiatric sickness.<br /><br />I was gently coding through a piece of code while being often disturbed by phone calls, meetings and other daily stuff.<br /><br />The obvious outcome was a messy code with an almost as much messy runtime result.<br /><br />At that precise moment, I was having a hard time focusing on this &#8220;algorithm&#8221; and the fact that the states in my java code could possibly be accessed from multiple threads was going to make things less easy.<br /><br />Therefore, with all that mess in my mind and my phone ringing now and then, I started commenting my code to make it readable (a bad habit indeed, as code should be self-readable by separating concerns in methods with readable names and sharing states in richly defined objects&#8230; but anyway&#8230;).<br /><br />When I was over commenting, the code did not behave any better, but was interweaved with rich textual descriptions.<br />Though it seemed that the added comments did not go further than the limitations I was already feeling (remember? difficulty to focus and phone ringing).<br />The comments themselves where sitting on top of the pile of messy code I had produced, with no added value as they were a direct transcription of how I was reasoning at that moment.<br /><br />So I decided to remove all these comments and to create a few rich immutable objects for states, and using ConcurrentHashMap and Atomic* all around.<br />My code was indeed completely thread-safe.<br /><br />But still&#8230; its behaviour was the same: not what I expected.<br /><br />So I decided to call in for help.<br /><br />I turned to one of my dear colleagues, and asked him to lend me a bit of his time in order to have a second look on my piece of code.<br />In fact, I couldn&#8217;t even think of a new way to look at it.<br /><br />Indeed, he gently accepted and sat next to me in order to look at my uncommented (if  he reads this, he&#8217;ll eventually remember telling me how messy and uncommented it looked ;) ) piece of over-immutable code.<br /><br />And then began an uncontrolled shrink scene.<br /><br />Here&#8217;s how this dialog (approximatively and &#8220;embellished&#8221; a bit) turned out:<br /><br /><span style="font-weight:bold;">me:</span> &#8220;So here&#8217;s my code, here is what it does, and things are all immutable and stuff&#8230;&#8221;<br /><span style="font-weight:bold;">colleague-shrink:</span> &#8220;Mmmmh mmh&#8230; So here&#8217;s your code, here is what it does, and things are all immutable and stuff?&#8221;<br /><span style="font-weight:bold;">me:</span> &#8220;eh yes, look I&#8217;ve toggled breakpoints all around and I can&#8217;t seem to see anything wrong&#8221;<br /><span style="font-weight:bold;">colleague-shrink:</span> &#8220;Mmmmh mmh&#8230; So You&#8217;ve toggled breakpoints all around and You can&#8217;t seem to see anything wrong?&#8221;<br /><span style="font-weight:bold;">me:</span> &#8220;Oh no! this little thingy was there all the time&#8230;my algorithm was missing one point and I was looking for a synchronization issue. Well thank you for solving this issue with me!&#8221;<br /><br /><br />And then it occured to me that (even if my colleague would probably have solved this problem quite fast) the only presence of a real person to whom you explain your code acts like a catharsis for solving bugs.<br /><br />Though this is not very new and one of the basis of paired programming, the parallelism with the shrink made me a bit uneasy.<br /><br />Do I have to pay my colleague now, in order for the treatment to be efficient? ;)<br /><br />So I now decided that this would now be rewarded by beers. So if you happen (or happened) to be my code-shrink, don&#8217;t hesitate to reclaim your beverage!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>zepag</div>
+<div class='content'>
+a beer&#8230; it&#8217;s indeed really cheap for a shrink :p</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Mmmh? No question about your childhood? Sounds like a cheap shrink to me ;-)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-10-26T00:00:00+02:00" pubdate data-updated="true">Oct 26<span>th</span>, 2007</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2007/10/26/almost-paired-programming-shrink/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2007/10/26/almost-paired-programming-shrink/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/06/22/spring-one-day3-spring-dynamic/" title="Previous Post: Spring One (day3) : Spring, dynamic languages and DSLs">&laquo; Spring One (day3) : Spring, dynamic languages and DSLs</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/06/10/spring-one-minus-one/" title="Next Post: Spring One minus One">Spring One minus One &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

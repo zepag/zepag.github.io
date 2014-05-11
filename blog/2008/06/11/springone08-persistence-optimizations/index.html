@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SpringOne08: Persistence Optimizations - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="DBA-Developer relationship, try to improve it&#8230; ok&#8230; too bad DBAs are not there to here that ;)Operational considerations:- Data volumes, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2008/06/11/springone08-persistence-optimizations">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">SpringOne08: Persistence Optimizations</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-11T00:00:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+DBA-Developer relationship, try to improve it&#8230; ok&#8230; too bad DBAs are not there to here that ;)<br /><br />Operational considerations:<br />- Data volumes, row sizes<br />- Growth estimates, update frequencies<br />- Availability requirements<br />- Testing/QA requirements<br /><br />Guidelines:<br />- appropriate data types<br />- small rows<br />- split large tables with one-to-one table containing fewer used fields<br />- improve indexes<br />- normalize data<br />- partition data (if available)<br /><br /><span style="font-weight:bold;">Most important: application tuning:</span><br />- keep transactions short<br />- bulk processes => off-hours<br />- understand locking (on writes, on reads&#8230;escalation of row locks to table locks in case of many reads&#8230;)<br /><br /><span style="font-style:italic;">ORM tuning:</span><br />- watch Criteria, no NULLS in the WHERE clause, they are not indexed<br />- like with % at the beginning: no index either<br />- pick an appropriate TransactionManager (only use XA when accessing JMS and database together)<br />- use READONLY, try to avoid SERIALIZABLE<br />- use lazy-loading<br />- use caching<br /><br />JDBC Tuning:<br />- set the fetch size on connections (defaults to 10 for Oracle driver&#8230;) lessens the network roundtrips<br /><br />Hibernate Tuning:<br />- use &#8220;select&#8221; fetch mode for relationships needed sometimes - results in 1 or 2 queries.<br />- use &#8220;join&#8221; fetch mode for relationships needed all the time (try to limit to one per object)<br />- use &#8220;batch-size&#8221; to prefetch a number of proxies and/or collections<br /><br />Bulk operations:<br />- do it in the database to avoid network (SQL statement, stored procedure, native data load tools&#8230;)<br />- if you need to do it from the application: JdbcTemplate (batchUpdate), SimpleJdbcInsert (executeBatch), Spring Batch (BatchSqlUpdateItemWriter), Hibernate (set hibernate.jdbc.batch_size and flush and clear session after each batch)<br /><br />SQL Tuning:<br />- Capture SQL<br />- Run EXPLAIN<br />- adjust: analyse, tweak optimizer, add index<br />- repeat until adequate performance<br />- ASK for help from your DBA ;)<br /><br />OpenSource JDBC monitors:<br />- p6spy<br />- Elvyx<br />- JDBCSpy<br /><br />Database specific tools:<br />- MySQL (slow query log with &#8211;log-slow-queries or &#8211;log-queries-not-using-indexes)<br />- Oracle: Enterprise Manager, Statspack<br />- Oracle XA: Monitor Top SQL<br /><br />Interesting tips for Oracle:<br />- Use the call to a function setting the module name in Oracle in the validation query for the connection<br />- Use explain and autotrace in Oracle SQL Developer<br />- Use ANALYSE TABLE [table] COMPUTE STATISTICS<br />- Use ANALYSE INDEX [index] COMPUTE STATISTICS<br /><br />Database Tuning:<br />- Memory (Global Area SGA, Session Area PGA)<br />- Disk (Block size, File placement)<br /><br />Talks about a ProxyDatasource during Q&A. This seems to allow to transmit the credentials of the interactive user. Could be interesting for refactoring of legacy Oracle Forms applications.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>lle</div>
+<div class='content'>
+Instead of ANALYZE, I (an Oracle DBA) would recommand DBMS_STATS instead.<BR/><BR/>ANALYZE is deprecated since 10g.<BR/><BR/>As stated, ask your DBA ;)</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-06-11T00:00:00+02:00" pubdate data-updated="true">Jun 11<span>th</span>, 2008</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/events/'>Events</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2008/06/11/springone08-persistence-optimizations/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2008/06/11/springone08-persistence-optimizations/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/06/11/springone08-keynote/" title="Previous Post: SpringOne08: Keynote">&laquo; SpringOne08: Keynote</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/06/11/springone08-security/" title="Next Post: SpringOne08: Security">SpringOne08: Security &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

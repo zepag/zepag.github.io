@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="A little definition of &#8220;Performance&#8221; Response time (classic) Throughput (concurrent processing) Utilization (Map-Reduce)Scalability & &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/page/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-osgi-spring/">OSGi DevCon Europe: OSGi + Spring Integration</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h4>A little definition of &#8220;Performance&#8221;</h4><br /> Response time (classic)<br />  Throughput (concurrent processing)<br /> Utilization (Map-Reduce)<br /><br />Scalability & Reliability (you have to choose a good balance between both)<br /><br /><h4>Code supernova</h4><br /> Nothing is perfect<br /> Code bases shall grow<br /> Teams grow, you get more people and therefore more bad developers<br /> More bugs&#8230;. ad lib&#8230;<br /><br />I really like this concept ;). It fits so many projects have seen which are more patchworks than real products!<br /><br /><h4>Single Thread Breakdown</h4><br /> One thread => single core<br /> You can deal with more requests, but hardly improve a lot the treatment of one.<br /><br /><h4>Synchronous breakdown</h4><br /> doing something, call another component , wait, finish.<br /><br /><h4>Spring Integration is about EIP</h4><br /><br />Allows decoupling, if you add this to OSGi it&#8217;s a nice combination.<br /><br />Very nice and professional demo, done with very nice Spring STS ;)</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-nimble/">OSGi DevCon Europe: Nimble</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+YA Dependency resolver/Provisionning tool ;)<br />Looks interesting.<br /><br />Once again, Artifacts, Capabilities and Requirements (see p2)<br />The structure there is a &#8220;Part&#8221; (see p2 IU in a sense)<br />a &#8220;Rule&#8221; is a template for a &#8220;Part&#8221;<br />It also defines a concept of Extensions.<br /><br />Gosh&#8230; such a short presentation on this results in a mess&#8230;<br /><br />Demo<br />A lot better with a demo&#8230;<br /><br />Nimble allows you to enforce Policies on provisionning. NICE!!!<br /><br />http://nimble.codecauldron.org/</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-emulation-of-devices/">OSGi DevCon Europe: Emulation of Devices With Flash and OSGi</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Interesting presentation on the emulation of devices.<br />The word &#8220;Device&#8221;, in the embedded &#8220;world&#8221;, is used to describe  technical component which does only one kind of thing with a clear contract (display, sound, gesture capture&#8230;etc).<br />Therefore, an iPhone is an assembly of devices.<br />The iPhone development scheme is sadly inefficient in terms of testing.<br /> <br />In order to test devices properly, they are advising to build an OSGi bundle for each device, and a flash interface for the device with xml-sockets (or any other equivalent client technology).<br /><br />Note that the client part is not mandatory, but allows product owners to define additional features and even capture test scenarios.<br /><br />Sadly, they are not open-sourcing (yet?) the framework they built for that.<br /><br />Wow&#8230; this was a fully packed day&#8230;</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/23/osgi-devcon-europe-blueprint-services/">OSGi DevCon Europe: Blueprint Services</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-23T00:00:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+DI, yet Legacy code-compatible, OSGi Dynamics, Hide OSGi API<br /><br /><h4>Configuration:</h4>Uses the extender pattern: The Blueprint Extender scans bundles to find xml files, creates metadata from them, and then creates beans, services, references.<br /><br /><h4>Manager Types:</h4> <b>Bean Manager:</b> creates POJOs and possibly wire dependencies.<br /> <b>Single Service Reference Manager:</b> one to one mapping with OSGi service<br /> <b>Multiple Services Reference Manager:</b> one to many mapping with OSGi service<br /> <b>Service Registration Manager:</b> Allows to register a POJO as an OSGi service<br /><br /><h4>Bean Manager</h4> takes as input a configuration which is very close from the Spring bean configuration.<br /> No, in fact it is Spring configuration reloaded&#8230; ;)<br /><br />To summarize: BluePrint is a standardization of Spring DM and of Spring DI configuration.<br />BluePrint already has other implementations (amongst them Geronimo Blueprint by G.Nodet who gave this talk)</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/22/osgi-devcon-europe-keynote/">OSGi DevCon Europe: Keynote</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h3>Keynote</h3>Detailed description on what&#8217;s going to be available in next releases (Core, Compendium and Enterprise).<br /><br /><h4>Launching:</h4>Need for a standardized launching system<br />Allows to embed easily the framework in your application<br />Using the service system of Java 5 (META-INF/services)<br /><br /><h4>Service Hooks</h4>Allows to listen service access events, therefore allowing interception for example.<br />FindHook, EventHook and ListenerHook.<br /><br /><h4>Negative Permissions</h4>Java 2 permissions: Very heavy to enumerate explicitely what is authorized and skip what is not.<br />Adding DENY and ALLOW. This is very nice! If it could just be implemented this way in Java 2 permissions&#8230;<br /><br /><h4>Remote Services</h4>RFC 119 (Formerly Distributed OSGi)<br />Remote access to OSGi services, protocol-independent.<br /><br /><h4>Blueprint extender</h4>RFC124<br />Provides Spring DM-like Functionality<br />Provides Service damping (wait until service is available) which is a very nice feature!<br />Defined through XML, a Blueprint container retrieves Metadata for Beans, Services, and References, and then creates corresponding elements from these metadatas.<br /><br /><br /><h4>Enterprise release</h4>Transactions, JDBC, JMX, JNDI, JPA, Connectors<br /><br /><h4>Experimental</h4>TSL Tiny script language<br />Uses reflection but simplifies syntax (no new commands)<br />Sounds fun!<br /><br /><h4>Nested frameworks</h4>Application servers need an application model<br />in OSGi: Application==set of installed bundles<br />Compromise: frameworks should be nested<br /><br /><h4>Java Modularity</h4>module keyword would be nice for OSGi<br />The rest is over simplistic and will probably introduce more issues than it will solve&#8230; and BTW, it will only be available in Java 7 (why a language feature for that????)<br /><br />BTW First time I hear a dog barking in a conference ;);)</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/22/conferences-in-zurich-day-1-osgi-devcon/">Conferences in Zurich, Day 1 : OSGi DevCon Europe</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Starting my blog marathon, especially for you, my reader ;).<br /><br />Today is the day before bootstrap of Jazoon.<br />Today is community day and offers 2 conferences: One about Glassfish, and another about OSGi.<br /><br />I must say I would have loved to attend both, but, as always in this kind of conference, you have to make tough choices.<br /><br />Well&#8230; not so tough, as OSGi DevCon talks have a lot of diversity whereas Glassfish talks are a lot about Glassfish&#8230;<br />Let&#8217;s say I used diversity as a filter and leave it at that.<br />I&#8217;ll definitely try to attend some Glassfish 3.0 talk during Jazoon anyway.<br /><br />So stay tuned for regular updates my dear reader, and have a nice monday!</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Your reader is happy ;-)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/27/my-wishes-for-better-maven-2/">My Wishes for a Better Maven 2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-27T00:00:00+02:00" pubdate data-updated="true">May 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+My main concern with maven builds is their lack of stability. Mostly in terms of dependencies.<br /><br />This is why I think that the following simple (apparently as I guess implementing them, though it seems simple to me, would possibly imply errors in exotic plugins) wishes would save the day of a whole lot of people (including of course&#8230; me ;) ).<br /><br /><h4>First things first: Exclusions.</h4><br />In a perfect world, everybody would declare dependencies properly (with a proper scope defined for <br />each, and optional dependencies declared&#8230; optional&#8230;) and versions resolutions for conflicting dependencies would work exactly as expected.<br />If you have used any of the repositories out there (even official ones) you know that some weird dependencies can irrupt in your project&#8217;s <i>Manifest.mf</i> file, <i>WEB-INF/lib</i> folder, or any other proper place to put transitive or direct dependencies of your artifact.<br />Moreover, if you are building complex multi-modules project, you&#8217;ll know that versions are not always resolved as they should.<br /><br />Right now, the only option is to exclude artifacts one by one. What a pain in the arse!<br />Please please please, add wildcard exclusion!!!, or even better, a <b>&lt;transitive&gt;true|false&lt;/transitive&gt;</b> element to the &lt;dependency/&gt; element.<br /><br /><h4>One step further: I don&#8217;t care about transitive</h4>In some cases, you&#8217;d want to experiment, or are quite sure about the dependencies you want, but for a precise reason, don&#8217;t want to retrieve any of the transitive dependencies.<br /><br />It would be really nice to add a <b>&lt;transitive&gt;true|false&lt;/transitive&gt;</b> element to the &lt;dependencies/&gt; element of the pom.<br /><br />You would then be able to declare all the dependencies of your project without relying on transitive mechanisms.<br /><br />This would really be an asset when you are handing over your build to maintenance, or building a stable release.<br /><br /><h4>Even better: How about making this automatic</h4>How nice would it be in this case that when the project is in the early dynamic phases, you specify your basic dependencies and retrieve the rest transitively, and&#8230;<br />&#8230;then&#8230;<br />At some point where you want to stabilize things or be sure of the outcome, you just launch for example: <b>mvn dependency:flatten</b> and &#8220;Voilà!&#8221; your pom.xml now contains all your project&#8217;s transitive dependencies, with appropriate scopes computed, and the aforementioned <b>&lt;transitive&gt;false&lt;/transitive&gt;</b> element added to the &lt;dependencies/&gt; element.<br /><br />I for myself would find this very intuitive and simple to use, without interfering with the current behaviour of maven at first glance (backward compatibility my friend!).<br /><br /><h4>For something completely different: splitting the local repository</h4><br />This last wish is likely to remain a wish as I think it would require too much work.<br />But it&#8217;s a sad thing that the local repository is not split between a plugins repository and a artifacts repository in some way.<br />The plugins repository would contain plugins and all their dependencies, and the artifacts repository would contain other artifacts and their dependencies.<br />This would disallow the intrusion of plugins&#8217; dependencies in your build.<br /><br />Though this wish would not be a real issue anymore if the previous wishes could be granted.<br /><br /><h4>To sum it up: Dynamics and Automation, plus Control!</h4><br />Maven 2 is a great tool and offers a very good way to have build with dynamically changing dependencies. When set up, you don&#8217;t always have to go and look for the latest build of your dependencies, and can automatically retrieve them.<br /><br />Though sometimes, a bit more control is needed, and it would be very nice to have this kind of choice.<br /><br /><b>EDIT: After wishing I did my homework and went voting for <a href="http://jira.codehaus.org/browse/MNG-1977">http://jira.codehaus.org/browse/MNG-1977</a> Go there and vote for it!!!</b></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+I would love to be able to re-scope/de-optionalize a transitive dependency, so I would not need to redeclare it and keep its version in sync with the transitive one.</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/02/dwell-in-hell-jaxb/">Dwell in Hell JaxB!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-02T00:00:00+01:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Feel free to join the JaxB bashing&#8230; ;)<br /><br />As pointed by <a href="http://twitter.com/ddossot/status/1269729660">David</a> Josh is not really happy about JaxB&#8217;s behaviour.<br /><br />It is even worse than Josh thinks or experienced, as the specification is based on the fact that your objects are plain Java Beans (with all the quirks of this damn spec&#8230;).<br /><br />I had an equivalent unpleasant surprise while giving a training on JaxWS (which specifies the use of JaxB recently) last december.<br /><br />The week before this training, I had worked on a domain-driven persistence design, with immutable objects, write-only repositories and read-only fast-lanes (will soon blog about it hopefully if it&#8217;s interesting enough)&#8230;<br />With this purist state of mind, I started creating in front of all the &#8220;students&#8221; a beautiful domain with Immutables (BTW I should have stuck with the default examples, though I wanted to demonstrate how easy it is to use JaxWS starting from scratch).<br />Yet be warned, an Immutable cannot be a JavaBean, as these beasts can only be created with the default no-args Constructor and their state modified by their getters/setters&#8230;.<br /><br />Isn&#8217;t that the stupidest thing in the world????<br /><br />What would be a best candidate for disconnected transfer (HTTP usually with WS) than an immutable object?<br /><br />I know for a fact that an External view of the service should separate my domain from the view I give from it to the outside, yet even if <a href="http://dozer.sourceforge.net/">good APIs</a> exist for the copy of the states of beans, it&#8217;s still a shame to be forced into java beans which are only useful for damn Swing developments (BTW I think I could wish hell to swing for being part of the JDK and being the motivation for the addition of a default implementation of database and web services inside the JDK/JRE&#8230;. what a nonsense).<br /><br />So in the end I completely agree with Josh and am still looking for a better ways to use immutables in J(2)EE applications. It seems that the whole platform was build without these beasts in mind.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>SM.ELAATIFI</div>
+<div class='content'>
+We work on a support for immutable objects (and a simple jaxb support) for our Java mapper framework.<br /><br />Any suggestions will be very helpful. <br /><br />Thanks</div>
+</div>
+<div class='comment'>
+<div class='author'>ssaboum</div>
+<div class='content'>
+you have more, and JAXb is a pain, what do you suggest to deal with Immutable objects ?<br /><br />I really don&#39;t want to start creating Adapters for all of them&#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>zepag</div>
+<div class='content'>
+Glad to know I have (at least) 2 readers ;);)</div>
+</div>
+<div class='comment'>
+<div class='author'>Josh Devins</div>
+<div class='content'>
+Glad to hear I&#8217;m not alone ;)</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/16/users-are-crappy-designers/">Users Are Crappy Designers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-02-16T00:00:00+01:00" pubdate data-updated="true">Feb 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+This title is of course a bit abrupt on purpose.<br />What I mean is users are very often crappy &#8220;web applications&#8221; designers&#8230; still abrupt, but scoped ;). Though I&#8217;m not sure they would be good designers for any other type of application, but they are definitely used to using them a lot more.<br /><br /><h4>Let&#8217;s illustrate that.</h4>In I.T. brand new projects are quite rare, therefore implying lots of rewriting from existing applications. As of brand new projects, they are often inspired by existing ones developed for the same system, or from a previous product built by the integrator.<br />A user, or &#8220;core-business&#8221; worker, has a tendency (and we all share this burden) not to change his habits. And former application is part of these habits, along with massive paper usage, attachments to emails, client-server applications (even though this last point is not really directly relevant to the user, its side-effects cripple today&#8217;s web applications, as we&#8217;ll see further in this post).<br /><br /><h4>Gathering requirements</h4>A real effort of will is necessary when gathering requirements to avoid asking any questions to the user about how he thinks the UI should look like. This will most likely not help you design your application in any way.<br /><br /><h4>False approach to novelty</h4>Adding a new face on an existing fat-client application by building a copy-cat web application is really a bad idea.<br />It may look cleaner (though this depends on taste, but web applications are a lot easier to style and to adapt visually than fat clients) though is not bringing any functional novelty, and often opposite to the all-powerful user&#8217;s habits (keyboard shortcuts for example) without improving the tool in the aspects of the work the user has to do.<br /><br /><h4>Real knowledge of the work flow</h4>Still the user has his hands on the treasure of treasures: the definite requirements a.k.a. the work flow a.k.a. the part that is almost never in the requirements.<br />Of course I&#8217;m insisting on &#8220;almost&#8221;, as in fact I&#8217;ve seen a lot of projects where it&#8217;s almost too much detailed, to the point that it&#8217;s really hard, for anybody trying to build a use-able tool out of it, not to get confused or to discuss for pointless hours about it.<br />Because, face it, users, or even somebody talking for them, are hard beasts to tame, and even harder to have around. In most cases they are your legendary beast, you&#8217;ll only read about them in the magic books of basic requirements. In Software Eden (the one advocated by Agile practices) the user is always at hand and grants you with insightful help all the time.<br />Hey! Stop that dream for now! &#8216;not talking about ideal situations there!<br /><br /><h4>Real lies about the work flow</h4>Users really know what they have to do and how, and at some point you may have a good grasp on it.<br />This is the time, you know, this time just the day before the official release, that it hits you abruptly on the forehead: Users&#8217; lies about his work flow.<br />In the requirements, during the demo, you&#8217;ll face a real user or a simili-user that will act like a theoretically perfect user.<br />Let&#8217;s face it though: Users are not perfect, and often will leave out things that are crucial in applications design, like timing, context, concurrent use of other applications&#8230;etc<br />These &#8220;lies&#8221; are not intentional, this is what people often call omissions, though when users are omitting things like the coffee break that makes it necessary to save forms before they are submitted in order to be able to work on them later on, or the fact that they will often have to work on behalf of some other user, or working offline, accessing the application through a PDA, being notified of anything important immediatly (with a very relative sense of immediatly standing from 1 sec. to 1/2 hour, to the infamously unprecise ASAP&#8230;).<br />All these questions should be brought up front, though are usually not part of the &#8220;noble&#8221; requirements.<br />One may argue that they should be and I cannot agree more.<br />Just keep in mind that users will have bad ideas on how it should be done, and which technology to use. They just know about their agenda, how to do their core-business, and have habits (which may include technology bits&#8230;).<br /><br /><h4>So where do we go from here</h4><br />Do never forget to ask the users about their habits.<br />In order to build on them for better functionalities, better tools.<br />In order to replace bad habits with better functionalities, better tools + training ;)<br /><br />Do never forget to ask the users about their timing.<br />Because their minute-to-minute agenda will have a very important impact on the outcome.<br />Because you need to taylor the system to their agenda, even if they don&#8217;t already know how.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+bring http://wiki.openqa.org/display/~zithromaxforsale zithromax for sale  wind <a href="http://wiki.openqa.org/display/~zithromaxforsale" rel="nofollow">zithromax for sale<br /></a> family [url=http://wiki.openqa.org/display/~zithromaxforsale]zithromax for sale<br />[/url] morning<br /><br />us http://wiki.openqa.org/display/~zithromaxprice zithromax price  test <a href="http://wiki.openqa.org/display/~zithromaxprice" rel="nofollow">zithromax price<br /></a> area [url=http://wiki.openqa.org/display/~zithromaxprice]zithromax price<br />[/url] field</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+north http://www.ipetitions.com/petition/zithromaxforsale/ zithromax for sale  lay <a href="http://www.ipetitions.com/petition/zithromaxforsale/" rel="nofollow">zithromax for sale<br /></a> play [url=http://www.ipetitions.com/petition/zithromaxforsale/]zithromax for sale<br />[/url] force<br /><br />follow http://www.ipetitions.com/petition/zithromaxprice zithromax price  does <a href="http://www.ipetitions.com/petition/zithromaxprice" rel="nofollow">zithromax price<br /></a> second [url=http://www.ipetitions.com/petition/zithromaxprice]zithromax price<br />[/url] common</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+nbqdtx http://www.playlist.com/blog/entry/12644389379 generic lexapro  qlihys <a href="http://www.playlist.com/blog/entry/12644389379" rel="nofollow">generic lexapro<br /></a> ugjlwe [url=http://www.playlist.com/blog/entry/12644389379]generic lexapro<br />[/url] ksebyf [url]http://www.playlist.com/blog/entry/12644389379[/url] generic lexapro<br /><br /><br />gaxhvm http://www.playlist.com/blog/entry/12644389635 cheap levitra  dlffpy <a href="http://www.playlist.com/blog/entry/12644389635" rel="nofollow">cheap levitra<br /></a> ezmuta [url=http://www.playlist.com/blog/entry/12644389635]cheap levitra<br />[/url] jgsutx [url]http://www.playlist.com/blog/entry/12644389635[/url] cheap levitra</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+Sorry for interrupting you&#8230; <br />buy generic lasix  http://www.playlist.com/blog/entry/12530350595 buy lasix  A merry Christmas!<br /><br />Excuse me&#8230; <br />buy lasix  <a href="http://www.playlist.com/blog/entry/12530350595" rel="nofollow">buy lasix<br /></a> buy lasix <br />See you soon!<br /><br />How do you do? <br />buy zithromax  http://www.playlist.com/blog/entry/12529890051 buy zithromax  Happy New Year!<br /><br />I haven&#39;t seen you for weeks. <br />buy zithromax  <a href="http://www.playlist.com/blog/entry/12529890051" rel="nofollow">buy zithromax<br /></a> buy zithromax <br />Bye-bye!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+I&#39;m all right. buy clomid  http://www.playlist.com/blog/entry/12526097155 buy clomid  Good night!<br /><br />Good morning! buy clomid  <a href="http://www.playlist.com/blog/entry/12526097155" rel="nofollow">buy clomid<br /></a> buy clomid online  A merry Christmas!</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+I&#39;m all right. valtrex cost http://www.stumbleupon.com/url/tentology.net/buy_valtrex_en-us.html valtrex cost Happy New Year!<br /><br />Excuse me&#8230; valtrex cost <a href="http://www.stumbleupon.com/url/tentology.net/buy_valtrex_en-us.html" rel="nofollow">valtrex cost</a> valtrex cost Come back soon.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+I would like to speak to you. valtrex cost cheap cod online  http://www.asianave.com/valtrex-cost/ valtrex cost card debit online phentermine  So long!<br /><br />How are you doing? valtrex cost cheap online  <a href="http://www.asianave.com/valtrex-cost/" rel="nofollow">valtrex cost discount<br /></a> valtrex cost consultation free hydrocodone online  Many thanks.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+Could you spare me a moment? order zithromax 1g oral suspension pack  http://www.stumbleupon.com/url/tentology.net/buy_zithromax_en-us.html order azithromycin zithromax  Give my regards to your sister. o<br /><br />Sorry for interrupting you&#8230; order zithromax 2000mg single dose  <a href="http://www.stumbleupon.com/url/tentology.net/buy_zithromax_en-us.html" rel="nofollow">order zithromax no prescription<br /></a> order zithromax poder  All the best! p</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+Excuse me&#8230; buy clomid serophene  http://wiki.answers.com/Q/User:Med-help buy clomid without a perscription  Happy New Year!<br /><br />How do you do? buy clomid and nolvadex  <a href="http://wiki.answers.com/Q/User:Med-help" rel="nofollow">50 buy clomid mg tablet<br /></a> buy clomid and nolvadex online  A merry Christmas!</div>
+</div>
+</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/10/02/mememe/">Meme(me)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-10-02T00:00:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/__O-4q_CaPyA/SOU9H3sLMyI/AAAAAAAALJ8/JbWG8YPAfcI/s1600-h/instantane.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/__O-4q_CaPyA/SOU9H3sLMyI/AAAAAAAALJ8/syVLksoXT6s/s320-R/instantane.jpg" /></a></div><br /><br />From <a href="http://ddossot.blogspot.com/2008/10/mememe.html">David</a>:<br />1. Take a picture of yourself right now.<br />2. Don’t change your clothes, don’t fix your hair…just take a picture.<br />3. Post that picture with NO editing.<br />4. Post these instructions with your picture.</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I&#8217;ll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zepag';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

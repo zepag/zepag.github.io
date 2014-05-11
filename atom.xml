@@ -1,100 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>ZePaG's blog, As if you cared...</title>
-  <meta name="author" content="Pierre-Antoine Grégoire">
-
-  
-  <meta name="description" content="I&rsquo;ve been thinking about relaunching my blog for a while, though I&rsquo;d have liked to be able to just write markdown and commit to publish, &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://zepag.github.io">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
-  
-    <h2>Whatever I think about whichever topic</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:zepag.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[ZePaG's blog, As if you cared...]]></title>
+  <link href="http://zepag.github.io/atom.xml" rel="self"/>
+  <link href="http://zepag.github.io/"/>
+  <updated>2014-05-11T15:39:33+02:00</updated>
+  <id>http://zepag.github.io/</id>
+  <author>
+    <name><![CDATA[Pierre-Antoine Grégoire]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2014-05-11T12:18:35+02:00" pubdate data-updated="true">May 11<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;ve been thinking about relaunching my blog for a while, though I&rsquo;d have liked to be able to just write markdown and commit to publish, in order for it to really be a &ldquo;web log&rdquo;.</p>
+  <entry>
+    <title type="html"><![CDATA[My Blog Using Octopress and Github Pages.]]></title>
+    <link href="http://zepag.github.io/blog/2014/05/11/my-blog-using-octopress-and-github-pages/"/>
+    <updated>2014-05-11T12:18:35+02:00</updated>
+    <id>http://zepag.github.io/blog/2014/05/11/my-blog-using-octopress-and-github-pages</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been thinking about relaunching my blog for a while, though I&rsquo;d have liked to be able to just write markdown and commit to publish, in order for it to really be a &ldquo;web log&rdquo;.</p>
 
 <p>This is what I&rsquo;m starting now with the use of Octopress, an extension of Jekyll which allows me to publish to github pages. e.g. to create a file, commit and that&rsquo;s basically it.</p>
 
@@ -103,42 +27,15 @@ Next step I guess ;).</p>
 
 <p>For the sake of it, I also imported my (very) old blogger posts, using the script found here:
 <a href="https://gist.github.com/juniorz/1564581">https://gist.github.com/juniorz/1564581</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-06-26T00:00:00+02:00" pubdate data-updated="true">Jun 26<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Status of OSGi]]></title>
+    <link href="http://zepag.github.io/blog/2011/06/26/status-of-osgi/"/>
+    <updated>2011-06-26T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2011/06/26/status-of-osgi</id>
+    <content type="html"><![CDATA[<div class='post'>
 OSGi bashing seems to be a widely appreciated sport these days.<br />The worrying part is where it comes from.<br /><br />As a disclaimer, I&#8217;d like to state that I quite love OSGi, because it provides <a href="http://osgithoughts.blogspot.com/2011/05/java-se-8-modularity-requirements.html">dynamic modularity, lifecycle and many other things Java SE is lacking</a>, and something the upcoming Java SE 8 modularity is not likely to provide. Besides that, it&#8217;s available now and has been for a while!<br /><br />This being said, OSGi is currently widely-used (at least this is where I see it used, not an exhaustive report):<br /><ul><li>in the embedded world (where it comes from)</li><li>in Software vendors products</li><li>in the core of IDEs or tools (mostly Eclipse of course) and application servers</li><li>Eclipse RCP rich clients</li></ul><br />OSGi coming from the embedded world, the enterprise software scope has only been very recently integrated. <br />Even though tooling is getting better with time (<a href="http://www.aqute.biz/Bnd/Bnd">Bnd</a>, <a href="http://www.springsource.org/bundlor">Bundlor</a>, <a href="http://ops4j1.jira.com/wiki/display/paxrunner/Pax+Runner">Pax</a> and many more&#8230;), frameworks are easing development a lot (<a href="http://www.springsource.org/osgi">Spring dM</a>, <a href="http://felix.apache.org/site/apache-felix-ipojo.html">iPOJO</a>&#8230;etc), and many companies are providing quality solutions and investing in it, OSGi doesn&#8217;t seem to gain a lot of interest in mainstream development. Let me rephrase this explicitly: OSGi doesn&#8217;t seem to gain the interest it really diserves.<br /><br />The main problem is context. When development is shifting towards more deployment flexibility, the <b>rigor</b> of OSGi in this domain is both a <b>bliss</b> and a <b>curse</b>.<br /><ul><li>a bliss as it makes things really manageable at any scale.</li><li>a curse because of the difficulty for newcomers to easily integrate the dependency mechanisms and more important the difficulty to grasp/solve dependency issues.</li><br /></ul><br />This last point is quite important, as it is what has made people rant about Maven (and this still goes on) since its inception.<br /><br />Easing dependency management is already difficult statically, so doing it dynamically is even harder. OSGi is REALLY doing a great job in this domain.<br /><br />The main issue is that average enterprise developers, not the very clever ones hired e.g. by Oracle for the Glassfish team or by Spring for Eclipse Virgo (shameless plug there, I know or have met with people from these teams ;) ), don&#8217;t want to deal with dynamic dependencies. Just as they don&#8217;t want to deal with multicore development. Average enterprise developers want this to be hidden from them. This can be seen in each and every specification of JavaEE which seems recently to focus mostly on ease of development, sometimes leaving out ease of operations and flexibility. Enterprise developers don&#8217;t want to know about multithreading or dynamic modularity. <br /><br />Don&#8217;t get me wrong, I think it&#8217;s a shame. And once again I think OSGi is one of the best solutions for dynamic modularity.<br /><br />Still when companies which embraced OSGi and invested a lot in it back out, things don&#8217;t look very good.Mulesoft&#8217;s founder Ross Mason <a href="http://blogs.mulesoft.org/osgi-no-thanks/">started</a> this a while ago after being disappointed by OSGi as a component model for Mule ESB. The Glassfish team embraced it, but only by hiding it behind the custom <a href="http://java.net/projects/hk2/content">HK2</a> core model. The JBoss Team has implemented an <a href="http://community.jboss.org/wiki/JBossOSGi">abstraction</a> above its microcontainer allowing to use OSGi, once again hiding it behind a custom layer.In the enterprise world, the only major actor (I mean no insult to the very brilliant smaller companies which provide quality OSGi enterprise solutions) embracing the OSGi model directly is (was?) SpringSource/VMWare.<br /><br />What came as a surprise is Rod Johnson&#8217;s recent <a href="http://www.theserverside.com/news/2240037102/OSGi-Not-Easy-Enough-to-Use-Not-as-Productive-as-it-Should-Be">words</a> on that. Rob Harrop also backed this. Their seem to conclude that OSGi is hard to be made productive.Stated like this it&#8217;s not really fair.There is little doubt OSGi is lacking many productivity boosters now found in modern frameworks: Convention over Configuration, Annotation based development helpers, Aspects, Transactions handling &#8230;etcNevertheless I know for a fact that there are <a href="http://www.eclipse.org/virgo/">good</a> <a href="http://felix.apache.org/site/apache-felix-ipojo.html">solutions</a> <a href="http://www.paremus.com/products/products.html">in the</a> <a href="http://karaf.apache.org/">OSGi world</a>. In fact, I think that if one compares OSGi to other dynamic modularity mechanisms, it is quite productive. It should not be compared directly to component models that leave out this dynamicity.<br /><br />The problem I see is that the OSGi world seems to be stuck in an oldish development model that fits well enough the embedded world it comes from (where the aforementioned development boosters are not really key features). Hence my recent comment on OSGi being stuck in the smart card age, which I should have rephrased as &#8220;OSGi is still held back by its embedded focus&#8221;.<br /><br />OSGi specifications should now enforce development boosters and not provide them as optional choices.<ul><li>It should be possible to create an OSGi bundle without a Manifest.mf file.</li><li>It should be possible to create an OSGi service providers/consumers just by adding an annotation to a class.</li><li>It should be possible to handle transactions easily.</li><li>It should be easy to operate bundles replacement.</li></ul>Well be glad, all of this is possible. Then be sad, as major vendors seem to turn their back on it.<br /><br />Two things in the end are really missing.<br />One thing really missing is an official repository (à la Maven Central) for OSGi bundles, provided by the OSGi alliance. Because adapting some existing libraries as bundles is really hard and requires a very good knowledge of the inner mechanisms of OSGi. What Springsource provides could be a good template for this.<br />The other thing missing is incentive for existing libraries/frameworks to provide OSGi compatible versions of their components. With companies like SpringSource sending mixed messages, it will become difficult to fuel this&#8230; Though one can&#8217;t blame them for thinking that nodejs, rails, grails and such bring a breeze of fresh air to a regular OSGi developer ;)</div>
 <h2>Comments</h2>
 <div class='comments'>
@@ -168,116 +65,35 @@ Perhaps you mistyped something. Did you mean &quot;withOUT a modularised approac
 Conceptually, modularity is awesome. Developing with services that have well defined lifecycles, segregated classloaders, interfaces and version numbers sounds like a good idea.<br /><br />In practice though, unless you&#39;re developing plug-in driven type of applications (like Eclipse), people seldom need such modularity. Applications are assembled, versioned and then deployed. No-one thinks of hot replacing a JAR at runtime as the best approach to fixing production: push-button deployment of an application as a whole gives excellent result and more predictability.<br /><br />Indeed, with a modularized approach you&#39;ll have hard time tracking what&#39;s actually running in your server (what modules, at what versions, and has this combination been through QA?&#8230;).<br /><br />For most the apps out there, OSGi modularity seems that it gives you the wrong seam for your architecture. Using messaging provides a better way of decoupling modules with semantics that cleanly support time decoupling. Actors provide a better decoupling for concurrency.<br /><br />My 2c.<br />D.</div>
 </div>
 </div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-15T00:00:00+01:00" pubdate data-updated="true">Nov 15<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Feelings and Pointers From My Day 1 at Devoxx 2010]]></title>
+    <link href="http://zepag.github.io/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/"/>
+    <updated>2010-11-15T00:00:00+01:00</updated>
+    <id>http://zepag.github.io/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at</id>
+    <content type="html"><![CDATA[<div class='post'>
 This day (up until now) was dedicated to Hands-on.<br /><br />I (sadly) arrived a bit late this morning, for what was in fact (not) a &#8220;hands-on&#8221;.<br />It was a presentation of interesting tools: HDFS/Hadoop, and 2 alternative interaction points with Hadoop/HDFS: Hive (SQL92-like implementation) and Pig (scripted approach)<br /><br />If you want to have a look at a Map/Reduce implementation with a SQL background, then definitely have a look at Hive!<br />Otherwise, Pig seems more powerful and should appeal to python-lovers.<br /><br />In the afternoon, I went for Spring Roo and Spring STS presentations/hands-on.<br />This freshened up a bit my perception of these tools, as I may have to use a lot their most recent versions in the coming times.<br /><br />Finally, I had a glance at a presentation about Code/API documentation. 2 pointers there: Bumblebee and JCite.<br /><br />I&#8217;m now going to participate to Groovy/Grails and Spring BOFs.<br /><br />More feedback to come later on.<br /><br />(This weBLOG is meant to be read by his author only, If you happen to read it, please flash your memory and fall into sleep mode ASAP)</div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-12-30T00:00:00+01:00" pubdate data-updated="true">Dec 30<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[ExtJS: Structuring Your Javascript Code (1)]]></title>
+    <link href="http://zepag.github.io/blog/2009/12/30/extjs-structuring-your-javascript-code/"/>
+    <updated>2009-12-30T00:00:00+01:00</updated>
+    <id>http://zepag.github.io/blog/2009/12/30/extjs-structuring-your-javascript-code</id>
+    <content type="html"><![CDATA[<div class='post'>
 <h1>ExtJS and me ;) </h1>In my search for good client application widgets, a few years ago, I started to look at YahooUI.<br />In these days (&#8220;days of yore&#8221; would be a tad inappropriate ;) ), YahooUI had some limitations, and only a few &#8220;out-of-the-box&#8221; widgets for &#8220;enterprise&#8221; applications.<br /><br />The following is an approximated history of ExtJS, don&#8217;t take it for granted&#8230; :p<br /><br />At some point, Jack Slocum forked or bundled, or rewrote a whole lot of YahooUI, known in these days as YahooUI-ext (extension).<br />This is when I learned about it, thanks to my soon-to-be boss (javascript hacker in his spare time ;)).<br />Though as the project evolved, and the codebase got almost completely rewritten, the project began to include YahooUI as one of its core mechanims (and therefore YahooUI-Ext was not only an extension to YahooUI anymore), which was the major shift that made the renamed ExtJS a framework in its own right. From now on, YahooUI dependency could be completely removed, and other frameworks could be used as an core mechanism (JQuery, Prototype&#8230;).<br /><br />At some point (version 2.0 and on) a specifically rewritten and optimized extjs mechanism was made available: ext-base. From there on, other frameworks were not even necessary anymore.<br /><br /><h1>Javascript thingy&#8230; why OMG why???</h1><br />In a few previous posts, I&#8217;ve already tried to debunk the javascript monster, in order to show that Javascript is a very good language, and that the monster in the browser is not javascript itself (though as every language, it&#8217;s far from perfect), but the DOM one has to deal with (which differs from browser to browser).<br /><br />As a web era guy, I&#8217;ve always felt deeply uncomfortable coding web interfaces with server-side languages (even if they are for rich-client-like applications). It has always made me feel like playing volley-ball knee-deep in liquid honey&#8230; (ok this is a weird image, though it conveys the message I guess).<br /><br />In fact, HTTP is a disconnected protocol, and I&#8217;ve always felt like one should use the best tool on both sides.<br />Before a few years ago and the dawning of AJAX, the client side was in a &#8220;ask-for-page, display-page, submit-form&#8221; paradigm which made server-side handling of web sites still relevant.<br />With AJAX and modern frameworks like ExtJS, it is possible to build your client application with a notepad in an html file, and then provide a backend based on any technology you see fit: JavaEE, .Net, PHP, CGI&#8230;<br />Moreover, if you need to change the UI or refresh it a bit later on, you will have the opportunity to do it without touching the logic-handling backend.<br /><br />I know for a fact that this ranting is directly (in my case) directed towards frameworks like JSF or GWT (the later being a specific case, as all it does is allowing you to code javascript + HTML + CSS in Java, and also because I think it&#8217;s a damn good framework).<br /><br />There are 2 tasks one has to handle with a javascript based framework like ExtJS (in fact 3, because the first is to know a bit more than average about Javascript) in order to achieve productivity:<br /><ol><li>Use an appropriate tooling: Javascript is not compiled, a validation tool is then required (and code completion is a nice-to-have)</li><li>Try to structure your code properly: This is (sadly) not very much documented.</li></ol><br />I&#8217;ll try to detail the second point in this post. For the first one, I&#8217;d recommend the use of Aptana, TextMate, or Spket in Eclipse. Visual Studio seems to have some Intellisense features for ExtJS. Learn more <a href="http://www.extjs.com/learn/Manual:Resources#IDEs">here</a>.<br /><br /><h1>The need to structure</h1>When you download ExtJS, you receive a whole lot of good stuff. Among these a lot of examples&#8230;<br /><br />What is hard to do is to try and begin an application.<br />Very quickly, you&#8217;ll end up creating a grid, and asking yourself: &#8220;My Ajax server-side request seems to be called and returns JSON/XML, then why is it that my grid doesn&#8217;t show the records?&#8221;.<br />You&#8217;ll soon see that extending the default <b>stores</b> and <b>readers</b> will allow you to whether use browsers&#8217; consoles (when they have one) or message boxes in order to give feedback on potential errors.<br />By default, the framework&#8217;s widgets are quite silent about this. <br /><br />Though all the hooks are in place, allowing you to add the expected behaviour (e.g. a popup when server-side errors occur, or even a retry policy, or displaying a loading icon&#8230;).<br /><br />In order to achieve and more importantly maintain that, a bit of structure is necessary.<br />This is what I&#8217;ll try and demonstrate in my next blog post.</div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I&#8217;ll Do the Reading</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-08-10T00:00:00+02:00" pubdate data-updated="true">Aug 10<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Mule Will Do the Hard Work, I'll Do the Reading]]></title>
+    <link href="http://zepag.github.io/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/"/>
+    <updated>2009-08-10T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading</id>
+    <content type="html"><![CDATA[<div class='post'>
 <a href="http://ddossot.blogspot.com/2009/07/mule-in-action-now-treeware.html">http://ddossot.blogspot.com/2009/07/mule-in-action-now-treeware.html</a><br />Mule in Action has been out for a while now, though as I don&#8217;t live overseas (well&#8230;depends from the point of view&#8230; or not&#8230; ;) ) it took a bit of time before I received my order.<br /><br />I&#8217;m now the very glad owner of a &#8220;Mule in action&#8221; book.<br /><br />I can only recommend it to anybody wanting to deal with the donkey beast.<br />It is fully packed with ESBntegration knowledge, from basic to very technical details!<br /><br />Everything you should know about Mule 2.x is in this book.<br /><br />Very good work from the very brilliant David and John!<br /><br />Go and <a href="http://www.manning.com/dossot">order it</a>!</div>
 <h2>Comments</h2>
 <div class='comments'>
@@ -297,79 +113,25 @@ Stop complaining, at least you&#39;ve got 4 readers ;)<br />I&#39;m afraid I onl
 Oh no, all the 4 readers of my blog have bought Mule in Action, who&#39;s gonna buy it now?!<br /><br />PS. Thanks for the plug ;-)</div>
 </div>
 </div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/06/27/jazoon-day-1-spring-30/">Jazoon Day 1: Spring 3.0</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-27T00:00:00+02:00" pubdate data-updated="true">Jun 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Jazoon Day 1: Spring 3.0]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/27/jazoon-day-1-spring-30/"/>
+    <updated>2009-06-27T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/27/jazoon-day-1-spring-30</id>
+    <content type="html"><![CDATA[<div class='post'>
 <h4>Java 5+ foundation</h4><br /> even more support for annotated components<br /> BeanFactory returns typed Beans <br />  T getBean(String name, Class&lt;T&gt; requiredType)<br /> TaskExecutor extends java.util.concurrentExecutor<br />  extended AsyncTaskExecutor supports Callables and Futures<br />        Typed ApplicationListener<E><br />  ApplicationEventMulticaster detects declared event type and filters accordingly.<br /> Annotated Factory Methods<br /> Use of Meta-Annotations<br />                This is indeed really great! It allows to potentially have only annotations from your own packages in your code.<br /><br /><br /><h4>Portfolio rearrangements</h4><br /> Spring OXM now in the core<br /> Revised binding and type conversion infrastructure: Superseeding standard JDK PropertyEditors<br /><br /><br /><h4>Spring Expression Language Unified</h4><br /> a kind of unified EL++<br /> EL default attributes: systemProperties, systemEnvironment, and any spring bean through its name(s)<br /> Contextual attributes depending on scope (access to request/session attributes for example).<br /><br /><h4>REST Support</h4><br /> Client and server side<br /> Defining URIs<br /> JAX-RS<br /><br /><h4>Declarative model validation</h4><br /> Hibernate Validator, JSR 303<br /> Annotating fields with constraint annotations<br /><br /><h4>Support for Portlet 2.0</h4><br /> action/render/event/resource request mappings<br /> <br /><h4>Early support for Java EE 6</h4><br /> JSF 2.0<br /> JPA 2.0<br /> JSR 303<br /> <br /><h4>New Namespaces</h4><br /> Scheduling namespace<br />  @Async annotation for methods<br />  @Scheduled for cron-triggered methods<br /> Namespace allows scanning of these annotations, and declarative equivalent Expressions<br /> Custom CRON support<br /><br /><h4>Pruning</h4><br /> Commons Attributes support<br /> TopLink API<br /> Subclass-style Struts 1.X<br /><br /><h4>Deprecations</h4><br /> traditional MVC form controller hierarchy: no new features<br /> traditional JUnit 3.8 test class hierarchy => now Test Context framework</div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/06/27/jazoon-day-1-rules-engines-overview-and/">Jazoon Day 1: Rules Engines Overview and Case Study</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-27T00:00:00+02:00" pubdate data-updated="true">Jun 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Jazoon Day 1: Rules Engines Overview and Case Study]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/27/jazoon-day-1-rules-engines-overview-and/"/>
+    <updated>2009-06-27T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/27/jazoon-day-1-rules-engines-overview-and</id>
+    <content type="html"><![CDATA[<div class='post'>
 <h4>Motivation for the use of business rules</h4><br /> updates in business rules have to change overnight<br /><br /><h4>Core idea</h4><br /> Treat business logic as business data<br /><br /><b>BRMS</b> (Business Rules Management System)<br /><br /><h4>BOM vs XOM</h4><br /> Business Object Model vs Execution Object Model<br /><br />iLog vs Drools<br /> equivalence of features.<br /><br />Business Rules format<br /> <b>when</b><br />  <conditions><br /> <b>then</b><br />  <actions><br /><br /><h4>Advanced Features</h4><br /> Custom, Higher level business language (translated to the same rules behind the scene<br /> Rule security<br /><br /><h4>Rules engine and SOA</h4><br /> Used for Monitoring of SLA<br /><br /><h4>Rules engine and CEP (Complex Event Processing)</h4><br /> Almost all BRMS have a CEP engine (well to me it seems a bit weird to say that&#8230; all engines have it, so it must be useful&#8230; :p )<br /><br />A bit of feedback on 2 projects with iLog and CLIPS.</div>
 <h2>Comments</h2>
 <div class='comments'>
@@ -379,227 +141,145 @@ Oh no, all the 4 readers of my blog have bought Mule in Action, who&#39;s gonna 
 why use BR : Using business rules to make processes simpler, smarter and more agile<br />  http://www.slideshare.net/jamet123/using-business-rules-to-make-processes-simpler-smarter-and-more-agile?type=powerpoint<br /><br />ref blog of james taylor</div>
 </div>
 </div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/06/27/jazoon-day-1-open-uat-universal/">Jazoon Day 1: Open UAT (Universal Authentication Toolkit) for Devices</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-27T00:00:00+02:00" pubdate data-updated="true">Jun 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Jazoon Day 1: Open UAT (Universal Authentication Toolkit) for Devices]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/27/jazoon-day-1-open-uat-universal/"/>
+    <updated>2009-06-27T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/27/jazoon-day-1-open-uat-universal</id>
+    <content type="html"><![CDATA[<div class='post'>
 <h4>Out of Band (OOB) Channels</h4><br /> Visual channel (barcodes)<br /> Audio channel (key encoded by audio)<br /> Manual string comparison (comparing codes)<br /> Accelerometer data (devices shaken together)<br /> Button presses (buttons pressed at the same time)<br /><br /><h4>J2ME Polish</h4><br /> Nice tool to specify the target of the build<br /><br /><h4>ScreenSnap</h4><br /> In-device capture application for Java ME<br /><br />This Open UAT system would be interesting on Google Android for example&#8230;</div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/06/27/jazoon-day-1-maven-3x-tycho/">Jazoon Day 1: Maven 3.x, Tycho</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-27T00:00:00+02:00" pubdate data-updated="true">Jun 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Jazoon Day 1: Maven 3.x, Tycho]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/27/jazoon-day-1-maven-3x-tycho/"/>
+    <updated>2009-06-27T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/27/jazoon-day-1-maven-3x-tycho</id>
+    <content type="html"><![CDATA[<div class='post'>
 Lots of attendees!!<br /><br /><h4>Maven 3.0</h4><br /> Fewer modules<br /> Simpler codebase<br /> Better IDEs support<br /> Integration Testing<br /> Backward compatibility<br /><br />Pom in multiple formats (groovy, ruby)<br /><br />PluginManager externalized<br /><br /><h4>Queryable lifecycle</h4><br /> Execution plan is defined up front and depending on the environment, what it will execute will be different (compilation with JDT In Eclipse for example)<br /><br />Plugin Extension Points, Lifecycle Extension Points<br /><br />Error & Integrity reporting fixed<br /><br /><h4>Mercury</h4><br /> async http client with ssl and streaming PGP, WebDav.<br /> Designed as standalone, Mercury can be embedded<br /> <b>SAT4J</b> (pseudo boolean solver) for dependency resolution<br /><br /><h4>Guice + Peaberry</h4><br /> Plexus will be replaced<br /> Peaberry is the equivalent of Spring dm for Guice<br /><br /><br />Incremental build support<br /><br />Extensible reporting<br /><br /><h4>M2Eclipse</h4><br /> Lots of real improvements with Maven 3.0<br /> M2E configuration framework<br /> Real round-trip between Eclipse and Maven Pom! NICE!!!!<br /><br />Planned for September/October&#8230; can&#8217;t wait&#8230; in fact, maybe I won&#8217;t ;) at least for Maven 3.0!<br /><br />Nexus presentation: interesting point: compatible with P2 and OBR<br /><a href="http://repository.apache.org">http://repository.apache.org</a><br /><a href="http://repository.sonatype.org">http://repository.sonatype.org</a><br /><a href="http://oss.sonatype.org">http://oss.sonatype.org</a><br /><a href="http://osgi.sonatype.org">http://osgi.sonatype.org</a><br /><br /><h4>Hudson</h4><br /> Drools workflow to build release processes<br /> Integrating JSecurity (Apache Shiro)<br /> REST layer<br /> Maven 3.0 like plugins<br /> Eclipse incremental compiler<br /><br /><br />Gosh this presentation is full of good news! Hopefully the result will be as good as promised&#8230;</div>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/06/27/jazoon-day-1-keynote-by-james-gosling/">Jazoon Day 1: Keynote by James Gosling</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-27T00:00:00+02:00" pubdate data-updated="true">Jun 27<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
+  <entry>
+    <title type="html"><![CDATA[Jazoon Day 1: Keynote by James Gosling]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/27/jazoon-day-1-keynote-by-james-gosling/"/>
+    <updated>2009-06-27T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/27/jazoon-day-1-keynote-by-james-gosling</id>
+    <content type="html"><![CDATA[<div class='post'>
 Starting with the JavaOne video<br />J.Gosling is then talking about network orientation, and the fact that Java is more about the JVM(s) than the language.<br /><br />He then demonstrates Glassfish v3 (finally, EJBs in webapps&#8230;) and Netbeans v6.7 which looks honestly pretty slick&#8230;<br /><br />Then talks about Real time JVM, and Intelligent Meshes (Sunspot (Squawk) VM, Sentilla.com).<br /><br />Talking about Hybrid car of Neil Young ;). May I suggest the guy is a little cocky there? ;);)<br /><br />Performance in java<br />Actually better than C/C++ in most cases.<br />He then demonstrates the now common assertion that Moore&#8217;s law is now wrong if you don&#8217;t consider the number of cores (not if one takes them into account).<br /><br />Funny point on the fact that most of what is happening on scientific calculation is driven by the progress of video games.<br /><br />A bit of advertizing on JDK 7 talk the following day.<br /><br />Java 6 updates (from 10 on)<br /> Fixes Desktop integration<br /> G1(Garbage first) collector<br /> Compressed pointers 32G==4G<br /><br />Web as the face of the Enterprise<br />=> JavaFX: same result as Flash, yet easier&#8230; still not convinced by that&#8230; :p</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jazoon Day 1: Glassfish V3]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/27/jazoon-day-1-glassfish-v3/"/>
+    <updated>2009-06-27T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/27/jazoon-day-1-glassfish-v3</id>
+    <content type="html"><![CDATA[<div class='post'>
+RRails native deployment<br />Modular because of the requirements of Java EE 6 Profiles<br /><br /><h4>Modularity</h4><br /> Based on OSGi (Apache Felix by default)<br /> 190 bundles (too many probably, but necessary at first, will decrease through time&#8230;or so they say ;))<br /> Modules have responsabilities (provide services) and a lifecycle<br /> Maven was used for the build<br /><br /><h4>Developer features</h4><br /> Integration with IDEs<br /> Fast startup, restart in debug<br /> Exploded directory deployment<br /> therefore&#8230; Fast deploy on save<br /> Preserve session across redeployment<br /> Application runner: java -jar glassfish.jar myWebApplication<br /> > Maven/ANT integration<br /> > Award winning UI console<br /><br />Java EE 6 EJB 3.1 in web apps is really a very nice feature. It also seems that @Resource can now inject elements that come from other sources than JNDI! NICE!!<br /><br /><h4>Runtime</h4><br /> Kernel<br />  startup/shutdown<br />  deployment<br />  configure reading<br /> Services<br />  Java EE 6: Security, Naming Manager<br />  Products; Admin consoles<br /> Containers<br />  Java EE 6: Web Container, EJB Container&#8230;<br />  Other possible custom containers (RRails)<br /><br /><h4>Application container</h4><br /> Deployment<br /> Configuration<br /> Commands (CLI, REST operation)<br /><br /><h4>Service Based Architecture</h4><br /> HK2 Services: Abstraction to OSGi services<br /> Per thread / Per scope scopes<br /> Integrated lightweight dependency injection<br /> Based on annotations (Container, Service, Inject&#8230;)<br /><br />OSGi services can be injected with @Resource Java EE annotation.</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jazoon Day 1: Concurrency and Performance Reloaded]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/27/jazoon-day-1-concurrency-and/"/>
+    <updated>2009-06-27T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/27/jazoon-day-1-concurrency-and</id>
+    <content type="html"><![CDATA[<div class='post'>
+Already lots of issues in single-threaded applications.<br />Moore&#8217;s law is continued by multiple cores.<br />Concurrent programming is not possible yet, we can only cope with it.<br /><br />Sadly (or not) concurrency is the main programming focus nowadays.<br /><br />We have to deal with concurrency explicitely while before you could just wait for the platforms to improve and gain performances ;)<br /><br />Problems: <br />- Hardware components are not shareable.<br />- Access to shared data has to be serialized.<br />- Databases offer access to shared data.<br />- Serialization limits scalability.<br /><br />He then talks about <a href="http://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl&#8217;s law</a> (parallel computing is limited by the time needed for the sequential part of the computing)<br />and Little&#8217;s law (Throughput is inversely proportional to service time).<br /><br />In Java: locking is pessimistic. Huge problem.<br /><br />In fact 99% of locks are almost never really contended, and a large part of those will never be contended at all by design.<br /><br />In Java 1.5, we have <b>Java Locks and system level locks</b> (hotspot profiles the application and determines if a lock is contended or not, and choose one or the other)<br /><br /><b>Lock coarsening</b> uses one lock only for nearby equivalently locked operations.<br /><br /><b>Compare And Swap (CAS)</b> used in Atomic classes. Fails only if another threads updates the data during your access. Needs less locking.<br /><br /><b>Biased Locking:</b><br />If a thread continuously acquires a lock, CAS is not used, and the thread keeps the lock until another one is reclaiming it (unbiasing)<br /><br />How to code this correctly:<br /><br />java.util.concurrent of course (Atomic*)<br />Lock striping (ConcurrentHashMap)<br />Teaching threads to steal (after all Garbage collecting is doing it).<br /><br />In 1.7: Fork-Join<br /><br />Fully concurrent lock-free algorithms:<br /> No blocking, threads are never waiting for anything.<br /> Wait free is different of course but should be achieve<br /> Parallel reads, serialized writes<br /><br />NonBlockingHashMap scales very well up to 1000 CPUs even for R/W, when ConcurrentHashMap doesn&#8217;t.<br /><br /><br />Fully concurrent lock-less FIFO?<br /> What does FIFO mean in multicore?<br /> => Doug Lea&#8217;s wait-free queue (getAndSet(V))<br /><br />Things that don&#8217;t make sense<br /> Iterator<br /> Size<br /> Contains<br /><br />These are not relevant in highly concurrent environment.<br />APIs must therefore be re-thought through.<br /><br />Very nice yet intricate talk. Too bad there&#8217;s not more time for <a href="http://www.kodewerk.com/">Dirk Pepperdine</a> to go more into details!</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: Transactions With OSGi]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-transactions-with/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-transactions-with</id>
+    <content type="html"><![CDATA[<div class='post'>
+Presentation is very good. Clement Escoffier is very dynamic, and has good vocabulary, and a very pronounced frenchy accent and grammar ;) (who am I to say?)<br />Very good explanation of the basics of transaction. Should be learned in schools as is ;)<br /><br />Indeed transactions are hard to handle in a system where the transaction manager bundle or the transaction participants can leave during a transaction!<br /><br />iPOJO Transaction Handler does that (amongst others). I&#8217;m still not clear if this is part of 4.2 release of OSGi.</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: RFID and OSGi Devices]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-rfid-and-osgi/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-rfid-and-osgi</id>
+    <content type="html"><![CDATA[<div class='post'>
+Collecting real data and analyse it in the I.T.System.<br /><br />Learned about MOSGI (JMX for OSGi) RFC 139<br /><br />Learned about ALE reports which are events published by RFID Readers.<br /><br />Starting to be a bit tired&#8230; too many presentations in one day :p</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: Remote Services, Yet Another One ;)]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-remote-services-yet/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-remote-services-yet</id>
+    <content type="html"><![CDATA[<div class='post'>
+<h3>Remote Services demo</h3>service.exported.* properties for registered services<br />NICE!!! OSGi service exposed with CXF<br />NICE&#8217; !!! Discovery mechanism is in the works for the client side<br /><br />Presentation of an Asynchronous remoting example/experiment.<br />This is not really available right now&#8230; and seems to be an example implementation.<br />Yet interesting ;) implemented by an OSGi Event dispatcher that allows to decouple from the implementation.<br />Drawbacks: No guaranteed delivery, No error handling with existing API. At least not yet, but this is experimental.<br /><br />Demo of ActiveMQWrapper behind the EDS (EventAdmin is the point of contact)<br /><br />http://cxf.apache.org/distributed-osgi.html (RI of OSGi 4.2 Remote Services)<br />http://lightsabre.fusesource.org (OSGi Asynchronous Messaging, experimental)</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: Remote Services]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-remote-services/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-remote-services</id>
+    <content type="html"><![CDATA[<div class='post'>
+<h4>Module management in java</h4>Mystical class path<br />In the end, classpath is flat<br />With OSGi: explicit dependencies, yet declarative<br />Allows events, dynamic handling, introspection<br />Services in OSGi allow to reduce coupling, but when package dependencies are explicit it limits the modularity.<br /><br /><h4>Service Registry</h4>Registering services by name, therefore allowing to reference a service without dependency on the implementation<br /><br /><h4>Distributed OSGi</h4>Remote can be separate machine, or separate JVM<br />Why? Isolation, Redundancy, Distribution is needed by your architecture<br /><br /><h4>OSGi 4.2 Remote Services</h4>Service Hooks (can intercept service requests)<br />Proxies<br />Intents (denotes an abstract distribution capability, requires mutual agreement, derives from SCA)<br /><br />Very Nice: R-OSGi Deployment definition tool for Eclipse!<br /><br />Remote Services Mostly based on the fact that services are stateless.<br /><br /><h4>Work in progress: replication,Research prototype: Cirrostratus</h4><br />Interesting as this allows completely virtual deployment of bundles.<br /><br />Though it is unclear how much of what is presented is actually really available. Presentation is tough to follow, yet very interesting.<br /><br />To summarize, seems that for stateless services, OSGi 4.2 would be enough, Cirrostratus prototype deals with state replication, service migration and hardening policies.</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: POSH]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-posh/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-posh</id>
+    <content type="html"><![CDATA[<div class='post'>
+POSH: Paremus OSGi Shell <br /><br />RFC 0132<br /><br />The man is yelling! ;) (Microphone too close to his mouth)<br /><br />Yet the topic is interesting, it&#8217;s about standardizing OSGi commands between frameworks.<br />For example &#8220;ss&#8221; in equinox is &#8220;ps&#8221; in Felix&#8230;<br />Not open source&#8230; even if pieces of it are part of Newton :p</div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: Persistence]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-persistence/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-persistence</id>
+    <content type="html"><![CDATA[<div class='post'>
+<h3>OSGi Persistence</h3><br /><h4>Java Persistence standards</h4>JPA<br />OXM: JAXB 2.X<br /><b>EDIT (see comments)</b><br />OXM: SDO 2.1<b>.1</b> JSR 235<br /><br /><h4>Eclipse Link</h4>JPA, MOXy (Object-XML), EIS, SDO, DBWS (XML-relational&#8230;Oracle :p)<br />Currently JPA 1.0 compatible, and working on 2.0<br /><br /><h4>MOXy</h4>Complete Object-XML mapping<br />Provides external mapping file! NICE!!! Never understood why they didn&#8217;t give that option in JAXB&#8230;<br /><br /><h4>EclipseLink available as OSGi bundles</h4>Supports usage of standard APIs (Persistence.createEntity, JAXBContext.newInstance(), commonj.sdo.HelperProvider)<br />Supports modular packaging<br />Decouples application from provider (Through JPA <provider> tag)<br /><br /><h4>Challenges for OSGi and JPA</h4>Bootstrap in JPA scans the classpath<br />Provider needs access to domain model classes<br />Needs access to JDBC driver (addressed RFC 122)<br /><br /><h4>Challenges for OSGi and JAXB</h4>Spec SPI does not support registration of providers<br />Provider needs access to domain model classes<br />Though supports passing domain model classloader<br /><br /><h4>Challenges for OSGi and SDO</h4>Spec hardwires everything so it doesn&#8217;t support custom providers<br /><br />JPA 2.0 will include dynamic resolution.</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kg</div>
+<div class='content'>
+A subtle but not insignificant correction.  JSR 235 provides the SDO 2.1.1 specification.  The 2.1 SDO spec was created by the OSOA group.</div>
 </div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
-<aside class="sidebar">
+]]></content>
+  </entry>
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I&#8217;ll Do the Reading</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: Pax]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-pax/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-pax</id>
+    <content type="html"><![CDATA[<div class='post'>
+Tools and service implementations (framework independent)<br />Widely used (Apache Felix, Mule&#8230; etc)<br /><br /><h4>PaxConstruct</h4>A bit like maven archetypes (on steroids) for OSGi.<br />pax-create-project -g foo -a bar<br />pax-wrap-jar<br />&#8230;etc<br /><br /><h4>PaxRunner</h4>Standard launcher for major frameworks (Apache Felix, Knoplerfish, Equinox, Concierge&#8230;)<br />Does the provisionning of required artifacts<br />Generates Configuration files<br />Generates packages for a target platform<br /><br /><h4>PaxExam</h4>Allows testing of OSGi services. NICE!<br />Compatible with JUnit 4 and Maven for setup.</div>
+]]></content>
+  </entry>
   
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
+  <entry>
+    <title type="html"><![CDATA[OSGi DevCon Europe: P2]]></title>
+    <link href="http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-p2/"/>
+    <updated>2009-06-23T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2009/06/23/osgi-devcon-europe-p2</id>
+    <content type="html"><![CDATA[<div class='post'>
+p2, modular provisioning for OSGi<br /><br />One consistent model from installation to servicing.<br /><br /><h4>Concepts:</h4><br /> Everything is an Installable Unit (IU)<br /> IU can have:<br />  Actions (steps to perform to fully deploy)<br />  Artifact reference (allows to reference dependencies without pointing directly to its location)<br />  Capabilities and Requirements<br /> Artifacts are:<br />  Bytes/content to be installed (JARs, binary executable, RPM, MSI&#8230; etc)<br /><br />God these presentations are too short.. The guy is talking too fast.<br />In the end, I already thought p2 was a bit of a mess, and as much as I want to like it, I&#8217;m still not clearly convinced by it.</div>
+]]></content>
+  </entry>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'zepag';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

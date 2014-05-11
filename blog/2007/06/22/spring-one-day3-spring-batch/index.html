@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Spring One (Day3) : Spring Batch - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="Last presentation!!!Spring IDE&#8217;s presentation occured at the same time, but as I already knew a bit about it&#8230; I skipped. But go and get &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2007/06/22/spring-one-day3-spring-batch">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Spring One (Day3) : Spring Batch</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2007</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://4.bp.blogspot.com/__O-4q_CaPyA/RnvB4__bQlI/AAAAAAAABHE/hMthWIICrDo/s1600-h/DSC00219.JPG"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://4.bp.blogspot.com/__O-4q_CaPyA/RnvB4__bQlI/AAAAAAAABHE/hMthWIICrDo/s320/DSC00219.JPG" border="0" alt=""id="BLOGGER_PHOTO_ID_5078866189784662610" /></a><br /><br />Last presentation!!!<br />Spring IDE&#8217;s presentation occured at the same time, but as I already knew a bit about it&#8230; I skipped. But go and get release 2.0 (released next week if I&#8217;m not wrong) it is amazingly productivity-inducing!<br /><br />And now on to Spring Batch.<br />This new product of the portfolio allows to deal with batching.<br />It was a project built by Accenture and is now a co-project of Accenture and Interface 21.<br /><br />It starts from the statement that nothing exists covering that subject in Java, and that there&#8217;s a common misconception about the fact that Batch is not possible nor efficient in java.<br /><br />It seems really complete and well-thought and is already production-grade.<br /><br />I really dig the Enterprise Message-driven processing, sadly it&#8217;s not targetted for version 1.0.<br /><br />Features:<br /><ul><br /><li>multiple formats for files</li><br /><li>Automatic retries</li><br /><li>Job control language (start, stop, suspend, cancel)</li><br /><li>status and statistics</li><br /><li>Entry points for launch (http, Unix script,incoming message, etc&#8230;)</li><br /><li>Ability to run concurrently with OLTP system</li><br /><li>Ability to use multiple transaction resources</li><br /><li>Support services (logging&#8230;etc)</li><br /></ul><br /><br />It really deals very well with batch retries at multiple levels, with a fairly rich set of possibilities.<br />Coding is (obviously one would say) POJO based, and batch behaviour is non-invasive.<br />Business logic is completely separated from job execution policies.<br /><br />The really interesting stuff not mentionned but implicit is that jobs can now be thoroughly unit tested (not integration tested, UNIT tested with mocks and everything!!).<br /><br />JMX Management is soon to be released. (How about batches launched from JRuby?)<br /><br />Roadmap:<br />Milestone 2 is soon to be released.<br />In the future:<br />Partitioned container,SEDA,Grid, ESB support, and more&#8230;</div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Anonyme</div>
+<div class='content'>
+besoin de verifier:)</div>
+</div>
+<div class='comment'>
+<div class='author'>David Dossot</div>
+<div class='content'>
+Thanks a lot for tour coverage of the event!</div>
+</div>
+</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2007-06-22T00:00:00+02:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2007</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/events/'>Events</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2007/06/22/spring-one-day3-spring-batch/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2007/06/22/spring-one-day3-spring-batch/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2007/06/22/spring-one-day3-roo/" title="Previous Post: Spring One (day3) : ROO">&laquo; Spring One (day3) : ROO</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2007/06/22/spring-one-day3-spring-dynamic/" title="Next Post: Spring One (day3) : Spring, dynamic languages and DSLs">Spring One (day3) : Spring, dynamic languages and DSLs &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

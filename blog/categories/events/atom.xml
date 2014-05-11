@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Events | ZePaG's blog, As if you cared...]]></title>
+  <link href="http://zepag.github.io/blog/categories/events/atom.xml" rel="self"/>
+  <link href="http://zepag.github.io/"/>
+  <updated>2014-05-11T15:39:33+02:00</updated>
+  <id>http://zepag.github.io/</id>
+  <author>
+    <name><![CDATA[Pierre-Antoine Grégoire]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SpringOne08: RESTFUL Web Services]]></title>
+    <link href="http://zepag.github.io/blog/2008/06/21/springone08-restful-web-services/"/>
+    <updated>2008-06-21T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2008/06/21/springone08-restful-web-services</id>
+    <content type="html"><![CDATA[<div class='post'>
+<span style="font-style:italic;">Late publication, didn't have the time back then ;)</span><br /><br /><span style="font-weight:bold;">A general presentation of REST:</span><br />- Everything is a resource (which has a value to the user). These are expressed by URIs and nouns<br />- Uniform interface (GET, HEAD, POST, PUT, DELETE, OPTIONS, and optionally TRACE)<br /><span style="font-weight:bold;"><br />GET:</span> safe operation (can be repeated) that retrieves a representation of the Resource.<br /> GET is Cacheable (Servers return ETag or LastModified)<br /> <br /><span style="font-weight:bold;">HEAD:</span> identical to GET without response body, only headers.<br /><br /><span style="font-weight:bold;">POST:</span> creates a new Resource (Typically as a child to another Resource)<br /> POST /hotels/1/bookings/ for example returns a location like: /hotels/1/bookings/50/<br /><br /><span style="font-weight:bold;">PUT:</span> updates a resource or creates a resource when the destination URI is known.<br /> As opposed to POST this can be repeated affecting the same resource.<br /><br /><span style="font-weight:bold;">DELETE:</span> IdemPotent, if an item is not there, it doesn't fail.<br /><span style="font-weight:bold;"><br />OPTIONS:</span> retrieves allowed HTTP methods on a resource.<br /><br /><br /><span style="font-weight:bold;">Resource reprensentations</span> => multiple representations (html, image, json... etc)<br /><span style="font-weight:bold;"><br />Stateless conversation:</span> no HTTP Session! State is maintained through transitions between links. As a result, the result is very scalable and enforces loose coupling.<br /><br /><span style="font-weight:bold;">Hypermedia:</span> fancy word for links ;), XLink is a spec for that and allows seamless evolution.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpringOne08: MDA and Spring]]></title>
+    <link href="http://zepag.github.io/blog/2008/06/21/springone08-mda-and-spring/"/>
+    <updated>2008-06-21T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2008/06/21/springone08-mda-and-spring</id>
+    <content type="html"><![CDATA[<div class='post'>
+<span style="font-style:italic;">Late publication... didn't have the time back then ;)</span><br /><br />Capgemini NL featured talk.<br />Begins with some basic concepts of MD*.<br /><br />Then describes what an MDA tool is supposed to do and who's going to use it.<br />This is one point of view.<br /><br />Pitfalls:<br />- Prevent "architecture-driven modeling" using markings.<br />- Keep applying traditional patterns of re-use, even if code generation can allow to generate a lot of boiler-plate code.<br />- Don't "u-em-ellify" everything.<br />- Don't touch your generated files (I tend to disagree... it just means that you need appropriate tools for that, though it does have problems with refactoring, and he recommends using Abstract classes).<br /><br />Recommended tooling:<br />- MDA tools: OSS=> OAW, Acceléo Commercial=> OptimalJ<br />- be sure to have markings available<br /><br />Advantages of MDA:<br />- From his experience, MDA allows to shift most of the issues in an application from the boilerplate code towards the business code. It seems obvious, but it's always nice to have additional practical feedback.<br />- Development and/or project speedup (I guess it depends on the side of the project and the extent of the use of MDA).<br />- Consistent code: enforce architectural patterns<br />- more flexibility<br /><br />Prerequisites:<br />- knowledge of the models / languages<br />- more tools, more learning curve<br />- creating templates is hard: garbage in == garbage out<br /><br />In the end a quite conventional talk, yet interesting.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpringOne08: Spring Integration]]></title>
+    <link href="http://zepag.github.io/blog/2008/06/12/springone08-spring-integration/"/>
+    <updated>2008-06-12T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2008/06/12/springone08-spring-integration</id>
+    <content type="html"><![CDATA[<div class='post'>
+Great talk, great features, though you can find everything he presented on the site and blog entries.<br /><br />I'll probably blog on this subject as soon as I give it a try.</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpringOne08: Spring Web Services]]></title>
+    <link href="http://zepag.github.io/blog/2008/06/12/spring08-spring-web-services/"/>
+    <updated>2008-06-12T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2008/06/12/spring08-spring-web-services</id>
+    <content type="html"><![CDATA[<div class='post'>
+Read the interesting (IM<span style="font-weight:bold;">N</span>SHO) bits below.<br /><br />Spring Web Services is Contract-First.<br /><br />Tools for contract infering from an xml instance:<br />Trang, XMLSpy, Microsoft XML to Schema (and an additional: Oxygen XML does that if I remember well). Why isn't there a java library for that (for use in IDEs and scripts)?<br /><br />(Of course) contract first is really a good practice, and schemas (once you get to know them) are really a very expressive language for message content description.<br /><br />New in Spring Web Services 1.5: <br />- JMS and Mail transports (a bit of overlap with Spring Integration... though this may merge sooner or later).<br />- WSS4J support (including client-side)<br />- WS-Addressing support<br />- OSGI Bundles</div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpringOne08: Spring Batch]]></title>
+    <link href="http://zepag.github.io/blog/2008/06/11/springone08-spring-batch/"/>
+    <updated>2008-06-11T00:00:00+02:00</updated>
+    <id>http://zepag.github.io/blog/2008/06/11/springone08-spring-batch</id>
+    <content type="html"><![CDATA[<div class='post'>
+This illustrates (and answers) a question I've always asked myself: Why shouldn't we code batch jobs in java...? In fact It's a lot more portable, testable and encapsulate-able than most of the usually used languages/platform nowadays.<br /><br />Spring Batch 2.0 will be Java 5 ready.<br /><br />Really interesting talk, yet already partly seen last year, and...I passed out a bit.<br /><br />It seems that there is an underlying convergence between Spring Batch and Spring Integration (after all Batches are only integration operations that are longer or operate on larger sets of data, with a bit more requirements in the failure handling...)</div>
+
+]]></content>
+  </entry>
+  
+</feed>

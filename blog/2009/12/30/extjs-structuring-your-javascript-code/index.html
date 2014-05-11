@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS: Structuring Your Javascript Code (1) - ZePaG's blog, As if you cared...</title>
+  <meta name="author" content="Pierre-Antoine Grégoire">
+
+  
+  <meta name="description" content="ExtJS and me ;) In my search for good client application widgets, a few years ago, I started to look at YahooUI.In these days (&#8220;days of yore&# &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zepag.github.io/blog/2009/12/30/extjs-structuring-your-javascript-code">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ZePaG's blog, As if you cared..." type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">ZePaG's blog, As if you cared...</a></h1>
+  
+    <h2>Whatever I think about whichever topic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zepag.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ExtJS: Structuring Your Javascript Code (1)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-30T00:00:00+01:00" pubdate data-updated="true">Dec 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><div class='post'>
+<h1>ExtJS and me ;) </h1>In my search for good client application widgets, a few years ago, I started to look at YahooUI.<br />In these days (&#8220;days of yore&#8221; would be a tad inappropriate ;) ), YahooUI had some limitations, and only a few &#8220;out-of-the-box&#8221; widgets for &#8220;enterprise&#8221; applications.<br /><br />The following is an approximated history of ExtJS, don&#8217;t take it for granted&#8230; :p<br /><br />At some point, Jack Slocum forked or bundled, or rewrote a whole lot of YahooUI, known in these days as YahooUI-ext (extension).<br />This is when I learned about it, thanks to my soon-to-be boss (javascript hacker in his spare time ;)).<br />Though as the project evolved, and the codebase got almost completely rewritten, the project began to include YahooUI as one of its core mechanims (and therefore YahooUI-Ext was not only an extension to YahooUI anymore), which was the major shift that made the renamed ExtJS a framework in its own right. From now on, YahooUI dependency could be completely removed, and other frameworks could be used as an core mechanism (JQuery, Prototype&#8230;).<br /><br />At some point (version 2.0 and on) a specifically rewritten and optimized extjs mechanism was made available: ext-base. From there on, other frameworks were not even necessary anymore.<br /><br /><h1>Javascript thingy&#8230; why OMG why???</h1><br />In a few previous posts, I&#8217;ve already tried to debunk the javascript monster, in order to show that Javascript is a very good language, and that the monster in the browser is not javascript itself (though as every language, it&#8217;s far from perfect), but the DOM one has to deal with (which differs from browser to browser).<br /><br />As a web era guy, I&#8217;ve always felt deeply uncomfortable coding web interfaces with server-side languages (even if they are for rich-client-like applications). It has always made me feel like playing volley-ball knee-deep in liquid honey&#8230; (ok this is a weird image, though it conveys the message I guess).<br /><br />In fact, HTTP is a disconnected protocol, and I&#8217;ve always felt like one should use the best tool on both sides.<br />Before a few years ago and the dawning of AJAX, the client side was in a &#8220;ask-for-page, display-page, submit-form&#8221; paradigm which made server-side handling of web sites still relevant.<br />With AJAX and modern frameworks like ExtJS, it is possible to build your client application with a notepad in an html file, and then provide a backend based on any technology you see fit: JavaEE, .Net, PHP, CGI&#8230;<br />Moreover, if you need to change the UI or refresh it a bit later on, you will have the opportunity to do it without touching the logic-handling backend.<br /><br />I know for a fact that this ranting is directly (in my case) directed towards frameworks like JSF or GWT (the later being a specific case, as all it does is allowing you to code javascript + HTML + CSS in Java, and also because I think it&#8217;s a damn good framework).<br /><br />There are 2 tasks one has to handle with a javascript based framework like ExtJS (in fact 3, because the first is to know a bit more than average about Javascript) in order to achieve productivity:<br /><ol><li>Use an appropriate tooling: Javascript is not compiled, a validation tool is then required (and code completion is a nice-to-have)</li><li>Try to structure your code properly: This is (sadly) not very much documented.</li></ol><br />I&#8217;ll try to detail the second point in this post. For the first one, I&#8217;d recommend the use of Aptana, TextMate, or Spket in Eclipse. Visual Studio seems to have some Intellisense features for ExtJS. Learn more <a href="http://www.extjs.com/learn/Manual:Resources#IDEs">here</a>.<br /><br /><h1>The need to structure</h1>When you download ExtJS, you receive a whole lot of good stuff. Among these a lot of examples&#8230;<br /><br />What is hard to do is to try and begin an application.<br />Very quickly, you&#8217;ll end up creating a grid, and asking yourself: &#8220;My Ajax server-side request seems to be called and returns JSON/XML, then why is it that my grid doesn&#8217;t show the records?&#8221;.<br />You&#8217;ll soon see that extending the default <b>stores</b> and <b>readers</b> will allow you to whether use browsers&#8217; consoles (when they have one) or message boxes in order to give feedback on potential errors.<br />By default, the framework&#8217;s widgets are quite silent about this. <br /><br />Though all the hooks are in place, allowing you to add the expected behaviour (e.g. a popup when server-side errors occur, or even a retry policy, or displaying a loading icon&#8230;).<br /><br />In order to achieve and more importantly maintain that, a bit of structure is necessary.<br />This is what I&#8217;ll try and demonstrate in my next blog post.</div>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pierre-Antoine Grégoire</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-30T00:00:00+01:00" pubdate data-updated="true">Dec 30<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/extjs-javascript-ui-agilepartner/'>ExtJS Javascript UI AgilePartner</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://zepag.github.io/blog/2009/12/30/extjs-structuring-your-javascript-code/" data-via="zepag" data-counturl="http://zepag.github.io/blog/2009/12/30/extjs-structuring-your-javascript-code/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/" title="Previous Post: Mule will do the hard work, I'll do the reading">&laquo; Mule will do the hard work, I'll do the reading</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/" title="Next Post: Feelings and pointers from my Day 1 at Devoxx 2010">Feelings and pointers from my Day 1 at Devoxx 2010 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/my-blog-using-octopress-and-github-pages/">My Blog Using Octopress and Github Pages.</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/06/26/status-of-osgi/">Status of OSGi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/11/15/feelings-and-pointers-from-my-day-1-at/">Feelings and Pointers From My Day 1 at Devoxx 2010</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/12/30/extjs-structuring-your-javascript-code/">ExtJS: Structuring Your Javascript Code (1)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2009/08/10/mule-will-do-hard-work-ill-do-reading/">Mule Will Do the Hard Work, I'll Do the Reading</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/+PierreAntoineGrégoire?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Pierre-Antoine Grégoire -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
